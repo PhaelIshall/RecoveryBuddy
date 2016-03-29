@@ -8,8 +8,7 @@
 
 import UIKit
 
-import Firebase
-import Parse
+
 
 
 @UIApplicationMain
@@ -19,13 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-       
-                Parse.setApplicationId("w8ElXVIPRbukdjdPIyaOTXJeKv4sghdb3eTSB7GE", clientKey: "MYWZPkDh2nW6Hc8uZeaj6FBqyFpLP9Uc8aCwY6XH")
-        
-        let u = PFUser();
-        u.addObject("idiot", forKey: "username")
-        u.saveInBackground()
+      
          return true
 
     }
