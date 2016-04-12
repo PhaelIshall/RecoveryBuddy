@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+
 
 class HomeViewController: UIViewController {
 
@@ -18,16 +18,7 @@ class HomeViewController: UIViewController {
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2;
         profilePicture.layer.borderWidth = 1;
         profilePicture.clipsToBounds = true;
-        let ref = Firebase(url:"https://recoverybuddy.firebaseio.com/")
         
-        let alanisawesome = ["full_name": "Alan Turing", "date_of_birth": "June 23, 1912"]
-        let gracehop = ["full_name": "Grace Hopper", "date_of_birth": "December 9, 1906"]
-        
-        let usersRef = ref.childByAppendingPath("users")
-        
-        let users = ["alanisawesome": alanisawesome, "gracehop": gracehop]
-        usersRef.setValue(users)
-
 
     }
 

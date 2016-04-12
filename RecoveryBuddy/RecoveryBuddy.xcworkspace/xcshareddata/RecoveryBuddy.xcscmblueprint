@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "1C55ADC409D9E9C42E86ACAB7023FA72936A2B64",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "FD2C327A67BCC8F5D2A9A82CCB5CF0B219D72AA2" : 0,
+    "1C55ADC409D9E9C42E86ACAB7023FA72936A2B64" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3ABD9727-DFA2-4495-99F0-8133EBC6C0B4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "FD2C327A67BCC8F5D2A9A82CCB5CF0B219D72AA2" : "Writing\/Projects\/research%20paper\/iStalker\/iStalk2%203\/",
+    "1C55ADC409D9E9C42E86ACAB7023FA72936A2B64" : "RecBud\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "RecoveryBuddy",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "RecoveryBuddy\/RecoveryBuddy.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PhaelIshall\/RecoveryBuddy.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "1C55ADC409D9E9C42E86ACAB7023FA72936A2B64"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/PhaelIshall\/iStalk2-3.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FD2C327A67BCC8F5D2A9A82CCB5CF0B219D72AA2"
+    }
+  ]
+}

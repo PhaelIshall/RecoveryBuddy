@@ -31,5 +31,19 @@ class MilestonesViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBOutlet weak var tableview: UITableView!
 
 }
+
+let array = ["Intuitive eating", "Not exercise"]
+extension MilestonesViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return array.count
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath)
+        cell.textLabel?.text = array[indexPath.item]
+        return cell
+    }
+}
+

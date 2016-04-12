@@ -5,7 +5,7 @@
 //  Created by Wiem Ben Rim on 3/22/16.
 //  Copyright (c) 2016 Wiem Ben Rim. All rights reserved.
 //
-
+import MBCalendarKit
 import UIKit
 
 class CalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
@@ -14,8 +14,15 @@ class CalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewD
     @IBOutlet weak var pickerView: UIPickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.pickerView.dataSource = self;
-        self.pickerView.delegate = self;
+//        self.pickerView.dataSource = self;
+//        self.pickerView.delegate = self;
+//    
+        let calendar = CKCalendarView();
+//        calendar.delegate = self;
+//        calendar.setDataSource = self;
+        let spacerView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+        self.view.addSubview(spacerView)
+        self.view.addSubview(calendar)
         
         // Do any additional setup after loading the view.
     }

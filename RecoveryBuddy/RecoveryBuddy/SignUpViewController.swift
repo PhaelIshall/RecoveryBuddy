@@ -7,29 +7,45 @@
 //
 
 import UIKit
+import Parse
 
-import Firebase
+class SignUpViewController: UIViewController{
+   
+    @IBOutlet weak var fullname: UITextField!
 
-class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate{
-    var pickerDataSource = ["Eating Disorder NOS", "Anorexia Nervosa", "Bulimia Nervosa", "Binge Eating Disorder"];
-
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var age: UITextField!
+   
+    @IBAction func continuing(sender: AnyObject) {
+        var user = PFUser();
+        user["username"] = userName;
+        user["password"] = userPassword;
+        user["fullName"] = fullName;
+        user["age"] = userAge;
+        user["email"] = userEmail;
+        
+        user.saveInBackgroundWithBlock(nil);
+        
+        
+        
+    }
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var email: UITextField!
+    
+    var fullName: NSString = "";
+    var userName: NSString = "";
+    var userAge: NSString = "";
+    var userPassword: NSString = "";
+    var userEmail: NSString = "" ;
+    
+ 
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let ref = Firebase(url:"https://recoverybuddy.firebaseio.com/")
-
-        let alanisawesome = ["full_name": "Alan Turing", "date_of_birth": "June 23, 1912"]
-        let gracehop = ["full_name": "Grace Hopper", "date_of_birth": "December 9, 1906"]
         
-        let usersRef = ref.childByAppendingPath("users")
-        
-        let users = ["alanisawesome": alanisawesome, "gracehop": gracehop]
-        usersRef.setValue(users)
-        self.pickerView.dataSource = self;
-        self.pickerView.delegate = self;
 
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,46 +53,5 @@ class SignUpViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         // Dispose of any resources that can be recreated.
     }
     
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerDataSource.count;
-    }
-    
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String! {
-        return pickerDataSource[row]
-    }
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        if(row == 0)
-        {
-            self.view.backgroundColor = UIColor.whiteColor();
-        }
-        else if(row == 1)
-        {
-            self.view.backgroundColor = UIColor.redColor();
-        }
-        else if(row == 2)
-        {
-            self.view.backgroundColor =  UIColor.greenColor();
-        }
-        else
-        {
-            self.view.backgroundColor = UIColor.blueColor();
-        }
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

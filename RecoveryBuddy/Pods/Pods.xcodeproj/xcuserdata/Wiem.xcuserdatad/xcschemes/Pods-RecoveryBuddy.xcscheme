@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AD254E514B02ACE519C770B3'
+               BlueprintIdentifier = '3C68E122054D39B821694642'
                BlueprintName = 'Pods-RecoveryBuddy'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_RecoveryBuddy.framework'>

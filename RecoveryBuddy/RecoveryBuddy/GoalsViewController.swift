@@ -8,12 +8,15 @@
 
 import UIKit
 
-class GoalsViewController: UISplitViewController {
+class GoalsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        tableview.reloadData()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,6 +25,7 @@ class GoalsViewController: UISplitViewController {
     }
     
 
+    @IBOutlet weak var tableview: UITableView!
     /*
     // MARK: - Navigation
 
@@ -32,4 +36,17 @@ class GoalsViewController: UISplitViewController {
     }
     */
 
+}
+
+//var array;
+let myarray = ["Meal Plan", "Exercise ", "Meal Plan 2"]
+extension GoalsViewController: UITableViewDataSource, UITableViewDelegate {
+     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return myarray.count
+    }
+     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath)
+        cell.textLabel?.text = myarray[indexPath.item]
+        return cell
+    }
 }
