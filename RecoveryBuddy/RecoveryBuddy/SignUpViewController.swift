@@ -23,12 +23,15 @@ class SignUpViewController: UIViewController{
 
     
     
-    @IBAction func continuing(sender: AnyObject) {
+    func continuing() {
+        //self.performSegueWithIdentifier("continueSignUp", sender: self)
         let user = User();
         user.username = username.text;
         user.password  = password.text;
         user.fullname = fullname.text!;
         user.email = email.text;
+
+        
         //user["age"] = userAge;
         //user["email"] = userEmail;
         
@@ -42,13 +45,17 @@ class SignUpViewController: UIViewController{
         
         
         }
-        self.performSegueWithIdentifier("continueSignUp", sender: self)
+        
         
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "continueSignUp"){
             segue.destinationViewController as! SignUp2ViewController
+            continuing();
+        }
+        else{
+            print("shut up");
         }
     }
     

@@ -36,9 +36,9 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "login"){
-            if (checkIfValid()) {
-                segue.destinationViewController as! HomeViewController
-            }
+            segue.destinationViewController as! UITabBarController
+                        
+            
         }
         else{
             segue.destinationViewController as! SignUpViewController

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E24-kV-fiS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10089" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nx1-L7-Mcb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10072.1"/>
@@ -136,7 +136,7 @@
                                     <color key="titleShadowColor" red="0.42057146340000001" green="0.5" blue="0.103042547" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="LrX-zh-5oy" kind="presentation" identifier="signUp" id="cZj-Rm-d6o"/>
+                                    <segue destination="LrX-zh-5oy" kind="presentation" identifier="login" id="cZj-Rm-d6o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-9j-jjQ">
@@ -153,7 +153,7 @@
                                 </state>
                                 <connections>
                                     <action selector="SignUpClicked:" destination="nx1-L7-Mcb" eventType="touchUpInside" id="DuH-Cg-i3Y"/>
-                                    <segue destination="E24-kV-fiS" kind="presentation" identifier="login" id="9s4-6F-w40"/>
+                                    <segue destination="E24-kV-fiS" kind="presentation" identifier="signUp" id="9s4-6F-w40"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -411,8 +411,8 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MAj-l0-B2Z"/>
                                     <barButtonItem title="Continue" id="ePu-FW-NmA">
                                         <connections>
-                                            <action selector="continuing:" destination="E24-kV-fiS" id="XEj-nD-E7q"/>
-                                            <segue destination="rwk-au-HbG" kind="show" identifier="continueSignUp" id="5b3-lC-Jin"/>
+                                            <action selector="continuing:" destination="E24-kV-fiS" id="Y8a-qm-iyf"/>
+                                            <segue destination="rwk-au-HbG" kind="show" identifier="continueSignUp" id="a2G-Qi-CRc"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NAh-HC-NCf"/>
@@ -542,7 +542,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PXH-pP-OdM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1086" y="3960"/>
+            <point key="canvasLocation" x="-1603" y="4036"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="AFu-Qb-S3W">
@@ -913,8 +913,8 @@
         <image name="technology" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IMi-QL-8v1"/>
         <segue reference="cZj-Rm-d6o"/>
-        <segue reference="790-Vl-JcX"/>
+        <segue reference="AJH-OH-7d4"/>
+        <segue reference="8Vj-AA-Lw1"/>
     </inferredMetricsTieBreakers>
 </document>
