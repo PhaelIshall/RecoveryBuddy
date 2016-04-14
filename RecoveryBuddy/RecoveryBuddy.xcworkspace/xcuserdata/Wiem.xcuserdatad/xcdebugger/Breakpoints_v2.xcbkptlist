@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RecoveryBuddy/SignUpViewController.swift"
-            timestampString = "481993549.133747"
+            timestampString = "482316159.820818"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
             landmarkName = "continuing(_:)"
             landmarkType = "5">
          </BreakpointContent>
