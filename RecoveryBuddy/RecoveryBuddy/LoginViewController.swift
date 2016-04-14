@@ -36,9 +36,9 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "login"){
-            segue.destinationViewController as! UITabBarController
-                        
-            
+            if (checkIfValid()){
+                segue.destinationViewController as! UITabBarController
+            }    
         }
         else{
             segue.destinationViewController as! SignUpViewController
@@ -50,10 +50,11 @@ class LoginViewController: UIViewController {
     func checkIfValid() -> Bool{
         var valid = false;
         let query = PFQuery(className: "User");
-        query.whereKey("username", equalTo: username);
-        query.whereKey("password", equalTo: password);
+        //query.whereKey("objectId", equalTo: (User.currentUser()?.objectId)!)
+        query.whereKey("username", equalTo: username.text!);
+        query.whereKey("password", equalTo: password.text!);
         query.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
-            if let results = results as? [PFUser] {
+            if let _ = results as? [PFUser] {
                 valid = true;
             }
         })

@@ -125,20 +125,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4v-ih-UL3">
-                                <rect key="frame" x="0.0" y="483" width="600" height="36"/>
-                                <color key="backgroundColor" red="0.92156862745098034" green="0.32549019607843138" blue="0.58039215686274515" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="gWg-6A-JYb"/>
-                                </constraints>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.42057146340000001" green="0.5" blue="0.103042547" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="LrX-zh-5oy" kind="presentation" identifier="login" id="cZj-Rm-d6o"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bG-9j-jjQ">
                                 <rect key="frame" x="265" y="536" width="76" height="30"/>
                                 <color key="backgroundColor" red="0.98829131850039198" green="1" blue="0.99851076610311951" alpha="1" colorSpace="calibratedRGB"/>
@@ -154,6 +140,20 @@
                                 <connections>
                                     <action selector="SignUpClicked:" destination="nx1-L7-Mcb" eventType="touchUpInside" id="DuH-Cg-i3Y"/>
                                     <segue destination="E24-kV-fiS" kind="presentation" identifier="signUp" id="9s4-6F-w40"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J4v-ih-UL3">
+                                <rect key="frame" x="0.0" y="483" width="600" height="36"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.32549019607843138" blue="0.58039215686274515" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="gWg-6A-JYb"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="0.42057146340000001" green="0.5" blue="0.103042547" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LrX-zh-5oy" kind="presentation" identifier="login" id="cZj-Rm-d6o"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -801,10 +801,10 @@
             </objects>
             <point key="canvasLocation" x="304" y="-1287"/>
         </scene>
-        <!--View Controller-->
+        <!--New Goal View Controller-->
         <scene sceneID="Dfv-8q-ODD">
             <objects>
-                <viewController id="x2W-Ee-eW6" sceneMemberID="viewController">
+                <viewController id="x2W-Ee-eW6" customClass="NewGoalViewController" customModule="RecoveryBuddy" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HQr-FH-puh"/>
                         <viewControllerLayoutGuide type="bottom" id="FcP-zH-a7A"/>
@@ -895,6 +895,9 @@
                             <constraint firstItem="L8z-xV-9rt" firstAttribute="centerX" secondItem="gMF-T1-m8W" secondAttribute="centerX" id="z4w-tE-mcp"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="addDetails" destination="Fhf-1S-XTO" id="3aw-ln-NWa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IRA-dd-rBv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -915,6 +918,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="cZj-Rm-d6o"/>
         <segue reference="AJH-OH-7d4"/>
-        <segue reference="8Vj-AA-Lw1"/>
+        <segue reference="9fI-jR-Nm6"/>
     </inferredMetricsTieBreakers>
 </document>

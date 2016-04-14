@@ -24,6 +24,11 @@ class GoalsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func retrieveGoals(){
+      //  let query = PFQuery
+    }
+    
 
     @IBOutlet weak var tableview: UITableView!
     /*
@@ -37,6 +42,7 @@ class GoalsViewController: UIViewController {
     */
 
 }
+
 
 //var array;
 let myarray = ["Meal Plan", "Exercise ", "Meal Plan 2"]
