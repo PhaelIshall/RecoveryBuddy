@@ -7,52 +7,67 @@
 //
 
 import UIKit
+import Parse
 
 class GoalsViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        // Do any additional setup after loading the view.
+        retrieveGoals();
         tableview.reloadData()
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var tableview: UITableView!{
+        didSet{
+            tableview.delegate = self;
+            tableview.dataSource = self;
+        }
+    }
+    var retrievedGoals = [Goal]();
     
     func retrieveGoals(){
-      //  let query = PFQuery
+        let query = PFQuery(className: "Goal");
+        //query.whereKey("belongTo", equalTo: (User.currentUser()?.objectId)!);
+        query.findObjectsInBackgroundWithBlock({
+            (goals, error) -> Void in
+            
+            if let g = goals as? [Goal]{
+                for entry in g{
+                    self.retrievedGoals.append(entry);
+                }
+                self.tableview.reloadData();
+            }
+            else {
+                print(error)
+            }
+        })
+        
+        
+        print(retrievedGoals.capacity)
     }
+
     
-
-    @IBOutlet weak var tableview: UITableView!
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 
 //var array;
-let myarray = ["Meal Plan", "Exercise ", "Meal Plan 2"]
+
 extension GoalsViewController: UITableViewDataSource, UITableViewDelegate {
-     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myarray.count
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return retrievedGoals.count
     }
-     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath)
-        cell.textLabel?.text = myarray[indexPath.item]
+        cell.textLabel?.text = retrievedGoals[indexPath.item].goalName;
         return cell
     }
 }

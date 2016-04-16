@@ -12,6 +12,10 @@
 		01309AA61CBF90990055018F /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AA51CBF90990055018F /* SignUp2ViewController.swift */; };
 		01309AA81CBF99840055018F /* Screen Shot 2016-03-29 at 8.58.03 PM.png in Resources */ = {isa = PBXBuildFile; fileRef = 01309AA71CBF99840055018F /* Screen Shot 2016-03-29 at 8.58.03 PM.png */; };
 		01309AAA1CBF9A810055018F /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AA91CBF9A810055018F /* NavigationBar.swift */; };
+		01309AAC1CBFAE630055018F /* tabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AAB1CBFAE630055018F /* tabBarViewController.swift */; };
+		01309AAE1CBFFDF40055018F /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */; };
+		01309AB01CC120410055018F /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AAF1CC120410055018F /* GoalViewController.swift */; };
+		01309AB21CC12F890055018F /* NewGoalViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AB11CC12F890055018F /* NewGoalViewController2.swift */; };
 		016CCC041CB7C383007168E4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CCC031CB7C383007168E4 /* LoginViewController.swift */; };
 		017F82DF1CA7D3B5006D5711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F82DE1CA7D3B5006D5711 /* AppDelegate.swift */; };
 		017F82E11CA7D3B5006D5711 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F82E01CA7D3B5006D5711 /* ViewController.swift */; };
@@ -55,6 +59,10 @@
 		01309AA51CBF90990055018F /* SignUp2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp2ViewController.swift; sourceTree = "<group>"; };
 		01309AA71CBF99840055018F /* Screen Shot 2016-03-29 at 8.58.03 PM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Screen Shot 2016-03-29 at 8.58.03 PM.png"; path = "../../Screen Shot 2016-03-29 at 8.58.03 PM.png"; sourceTree = "<group>"; };
 		01309AA91CBF9A810055018F /* NavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		01309AAB1CBFAE630055018F /* tabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tabBarViewController.swift; sourceTree = "<group>"; };
+		01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
+		01309AAF1CC120410055018F /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
+		01309AB11CC12F890055018F /* NewGoalViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController2.swift; sourceTree = "<group>"; };
 		016CCC031CB7C383007168E4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		017F82D91CA7D3B5006D5711 /* RecoveryBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecoveryBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		017F82DD1CA7D3B5006D5711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,15 +163,19 @@
 				01C519391CB5887F002A2095 /* PhotoTaking */,
 				017F83031CA7D9F5006D5711 /* SignUpViewController.swift */,
 				01309AA71CBF99840055018F /* Screen Shot 2016-03-29 at 8.58.03 PM.png */,
+				017F82E21CA7D3B5006D5711 /* Main.storyboard */,
+				01309AB11CC12F890055018F /* NewGoalViewController2.swift */,
 				01309AA51CBF90990055018F /* SignUp2ViewController.swift */,
 				017F83041CA7D9F5006D5711 /* MilestonesViewController.swift */,
 				017F83051CA7D9F5006D5711 /* HomeViewController.swift */,
+				01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */,
 				017F83061CA7D9F5006D5711 /* GoalsViewController.swift */,
 				017F83071CA7D9F5006D5711 /* CalViewController.swift */,
 				017F82DE1CA7D3B5006D5711 /* AppDelegate.swift */,
 				017F82E01CA7D3B5006D5711 /* ViewController.swift */,
 				016CCC031CB7C383007168E4 /* LoginViewController.swift */,
-				017F82E21CA7D3B5006D5711 /* Main.storyboard */,
+				01309AAF1CC120410055018F /* GoalViewController.swift */,
+				01309AAB1CBFAE630055018F /* tabBarViewController.swift */,
 				01309AA91CBF9A810055018F /* NavigationBar.swift */,
 				01C5193C1CB599A8002A2095 /* DiaryViewController.swift */,
 				017F82E51CA7D3B5006D5711 /* Images.xcassets */,
@@ -422,15 +434,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01309AB01CC120410055018F /* GoalViewController.swift in Sources */,
 				017F830A1CA7D9F5006D5711 /* HomeViewController.swift in Sources */,
 				01C5193D1CB599A9002A2095 /* DiaryViewController.swift in Sources */,
+				01309AAE1CBFFDF40055018F /* NewGoalViewController.swift in Sources */,
 				01309AA61CBF90990055018F /* SignUp2ViewController.swift in Sources */,
+				01309AB21CC12F890055018F /* NewGoalViewController2.swift in Sources */,
 				017F83081CA7D9F5006D5711 /* SignUpViewController.swift in Sources */,
 				01C5193B1CB588B6002A2095 /* PhotoTakingHelper.swift in Sources */,
 				017F82E11CA7D3B5006D5711 /* ViewController.swift in Sources */,
 				017F82DF1CA7D3B5006D5711 /* AppDelegate.swift in Sources */,
 				01309AA31CBF7B7C0055018F /* Goal.swift in Sources */,
 				017F83091CA7D9F5006D5711 /* MilestonesViewController.swift in Sources */,
+				01309AAC1CBFAE630055018F /* tabBarViewController.swift in Sources */,
 				01309AA41CBF7B7C0055018F /* User.swift in Sources */,
 				017F830C1CA7D9F5006D5711 /* CalViewController.swift in Sources */,
 				01309AAA1CBF9A810055018F /* NavigationBar.swift in Sources */,

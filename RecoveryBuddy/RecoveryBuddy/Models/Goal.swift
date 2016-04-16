@@ -82,7 +82,22 @@ class Goal: PFObject, PFSubclassing {
             self["createdAt"] = newValue
         }
     }
-
+    var details: String{
+        get{
+            return self["Details"] as! String
+        }
+        set{
+            self["Details"] = newValue
+        }
+    }
+    var goalName: String{
+        get{
+            return self["goalName"] as! String
+        }
+        set{
+            self["goalName"] = newValue
+        }
+    }
     
     
     
