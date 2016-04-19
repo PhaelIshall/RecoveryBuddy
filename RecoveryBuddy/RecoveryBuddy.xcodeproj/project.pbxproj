@@ -16,6 +16,8 @@
 		01309AB01CC120410055018F /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AAF1CC120410055018F /* GoalViewController.swift */; };
 		01309AB21CC12F890055018F /* NewGoalViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AB11CC12F890055018F /* NewGoalViewController2.swift */; };
 		01689B5D1CC6302C00E54113 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01689B5C1CC6302C00E54113 /* NavigationController.swift */; };
+		01689B661CC63E3F00E54113 /* GoalsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01689B651CC63E3F00E54113 /* GoalsCell.swift */; };
+		01689B6F1CC6A29800E54113 /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01689B6E1CC6A29800E54113 /* GoalType.swift */; };
 		016CCC041CB7C383007168E4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CCC031CB7C383007168E4 /* LoginViewController.swift */; };
 		017F82DF1CA7D3B5006D5711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F82DE1CA7D3B5006D5711 /* AppDelegate.swift */; };
 		017F82E11CA7D3B5006D5711 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F82E01CA7D3B5006D5711 /* ViewController.swift */; };
@@ -63,6 +65,8 @@
 		01309AAF1CC120410055018F /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		01309AB11CC12F890055018F /* NewGoalViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController2.swift; sourceTree = "<group>"; };
 		01689B5C1CC6302C00E54113 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		01689B651CC63E3F00E54113 /* GoalsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalsCell.swift; path = RecoveryBuddy/GoalsCell.swift; sourceTree = "<group>"; };
+		01689B6E1CC6A29800E54113 /* GoalType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
 		016CCC031CB7C383007168E4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		017F82D91CA7D3B5006D5711 /* RecoveryBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecoveryBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		017F82DD1CA7D3B5006D5711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -75,7 +79,7 @@
 		017F82F31CA7D3B5006D5711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		017F82F41CA7D3B5006D5711 /* RecoveryBuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryBuddyTests.swift; sourceTree = "<group>"; };
 		017F83031CA7D9F5006D5711 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		017F83041CA7D9F5006D5711 /* MilestonesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MilestonesViewController.swift; sourceTree = "<group>"; };
+		017F83041CA7D9F5006D5711 /* MilestonesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MilestonesViewController.swift; path = ../MilestonesViewController.swift; sourceTree = "<group>"; };
 		017F83051CA7D9F5006D5711 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		017F83061CA7D9F5006D5711 /* GoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		017F83071CA7D9F5006D5711 /* CalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalViewController.swift; sourceTree = "<group>"; };
@@ -139,10 +143,10 @@
 		01689B5A1CC55ACA00E54113 /* Goals */ = {
 			isa = PBXGroup;
 			children = (
+				017F83061CA7D9F5006D5711 /* GoalsViewController.swift */,
+				01309AAF1CC120410055018F /* GoalViewController.swift */,
 				01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */,
 				01309AB11CC12F890055018F /* NewGoalViewController2.swift */,
-				01309AAF1CC120410055018F /* GoalViewController.swift */,
-				017F83061CA7D9F5006D5711 /* GoalsViewController.swift */,
 			);
 			name = Goals;
 			sourceTree = "<group>";
@@ -156,9 +160,46 @@
 			name = SignUP;
 			sourceTree = "<group>";
 		};
+		01689B601CC63A2800E54113 /* Milestones */ = {
+			isa = PBXGroup;
+			children = (
+				017F83041CA7D9F5006D5711 /* MilestonesViewController.swift */,
+			);
+			name = Milestones;
+			path = PhotoTaking;
+			sourceTree = "<group>";
+		};
+		01689B611CC63A4200E54113 /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				01309AAB1CBFAE630055018F /* tabBarViewController.swift */,
+				01C5193C1CB599A8002A2095 /* DiaryViewController.swift */,
+				017F83051CA7D9F5006D5711 /* HomeViewController.swift */,
+			);
+			name = MainViewControllers;
+			sourceTree = "<group>";
+		};
+		01689B621CC63A5700E54113 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				016CCC031CB7C383007168E4 /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		01689B671CC63E4500E54113 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				01689B651CC63E3F00E54113 /* GoalsCell.swift */,
+				01689B6E1CC6A29800E54113 /* GoalType.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		017F82D01CA7D3B5006D5711 = {
 			isa = PBXGroup;
 			children = (
+				01689B671CC63E4500E54113 /* Cells */,
 				017F82DB1CA7D3B5006D5711 /* RecoveryBuddy */,
 				017F82F11CA7D3B5006D5711 /* RecoveryBuddyTests */,
 				017F82DA1CA7D3B5006D5711 /* Products */,
@@ -180,20 +221,18 @@
 		017F82DB1CA7D3B5006D5711 /* RecoveryBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				01689B621CC63A5700E54113 /* Login */,
+				01689B611CC63A4200E54113 /* MainViewControllers */,
+				01689B601CC63A2800E54113 /* Milestones */,
 				017F82E21CA7D3B5006D5711 /* Main.storyboard */,
 				01689B5C1CC6302C00E54113 /* NavigationController.swift */,
 				01689B5B1CC60D0E00E54113 /* SignUP */,
 				01689B5A1CC55ACA00E54113 /* Goals */,
 				01309AA01CBF7B7C0055018F /* Models */,
 				01C519391CB5887F002A2095 /* PhotoTaking */,
-				017F83041CA7D9F5006D5711 /* MilestonesViewController.swift */,
-				016CCC031CB7C383007168E4 /* LoginViewController.swift */,
-				017F83051CA7D9F5006D5711 /* HomeViewController.swift */,
 				017F83071CA7D9F5006D5711 /* CalViewController.swift */,
 				017F82E01CA7D3B5006D5711 /* ViewController.swift */,
-				01309AAB1CBFAE630055018F /* tabBarViewController.swift */,
 				01309AA91CBF9A810055018F /* NavigationBar.swift */,
-				01C5193C1CB599A8002A2095 /* DiaryViewController.swift */,
 				017F82E51CA7D3B5006D5711 /* Images.xcassets */,
 				017F82E71CA7D3B5006D5711 /* LaunchScreen.xib */,
 				017F82DC1CA7D3B5006D5711 /* Supporting Files */,
@@ -449,6 +488,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01689B661CC63E3F00E54113 /* GoalsCell.swift in Sources */,
 				01309AB01CC120410055018F /* GoalViewController.swift in Sources */,
 				017F830A1CA7D9F5006D5711 /* HomeViewController.swift in Sources */,
 				01C5193D1CB599A9002A2095 /* DiaryViewController.swift in Sources */,
@@ -456,6 +496,7 @@
 				01309AA61CBF90990055018F /* SignUp2ViewController.swift in Sources */,
 				01309AB21CC12F890055018F /* NewGoalViewController2.swift in Sources */,
 				017F83081CA7D9F5006D5711 /* SignUpViewController.swift in Sources */,
+				01689B6F1CC6A29800E54113 /* GoalType.swift in Sources */,
 				01C5193B1CB588B6002A2095 /* PhotoTakingHelper.swift in Sources */,
 				017F82E11CA7D3B5006D5711 /* ViewController.swift in Sources */,
 				017F82DF1CA7D3B5006D5711 /* AppDelegate.swift in Sources */,

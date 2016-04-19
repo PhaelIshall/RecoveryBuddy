@@ -11,7 +11,8 @@ import Parse
 
 class GoalsViewController: UIViewController {
 
-    @IBOutlet weak var navBar: UINavigationBar!
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +55,27 @@ class GoalsViewController: UIViewController {
         
         print(retrievedGoals.capacity)
     }
+    
+    
+    var selectedGoal: Goal?
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "openReq"){
+            let nav = segue.destinationViewController as! NavigationController
+            let openGoal = nav.topViewController as! GoalViewController
+            
+            
+            var indexPath = self.tableview.indexPathForSelectedRow!
+             selectedGoal = retrievedGoals[indexPath.item]
+           openGoal.details = selectedGoal?.details
+            openGoal.progress = selectedGoal?.progress
 
+            openGoal.goalname = selectedGoal?.goalName
+           openGoal.goaltype = selectedGoal?.goalType
+            openGoal.startdate = selectedGoal?.startDate
+            openGoal.endDate = selectedGoal?.endDate
+        }
+    }
     
 }
 
@@ -66,9 +87,19 @@ extension GoalsViewController: UITableViewDataSource, UITableViewDelegate {
         return retrievedGoals.count
     }
     
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath) as! GoalsCell
+        selectedGoal = retrievedGoals[indexPath.item]
+        cell.goalName.text = retrievedGoals[indexPath.item].goalName;
+        cell.goalProgress.text = "You are \(retrievedGoals[indexPath.item].progress) done.";
         cell.textLabel?.text = retrievedGoals[indexPath.item].goalName;
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //selectedGoal = retrievedGoals[indexPath.item]
+        //self.performSegueWithIdentifier("openReq", sender: self)
     }
 }
