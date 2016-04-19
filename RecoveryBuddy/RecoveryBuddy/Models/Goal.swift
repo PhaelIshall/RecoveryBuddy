@@ -38,9 +38,9 @@ class Goal: PFObject, PFSubclassing {
         }
     }
     
-    var goalType: String{
+    var goalType: Int{
         get{
-            return self["goalType"] as! String
+            return self["goalType"] as! Int
         }
         set{
             self["goalType"] = newValue
@@ -49,10 +49,10 @@ class Goal: PFObject, PFSubclassing {
     
     var progress: Int{
         get{
-            return self["goalType"] as! Int
+            return self["progress"] as! Int
         }
         set{
-            self["goalType"] = newValue
+            self["progress"] = newValue
         }
     }
     

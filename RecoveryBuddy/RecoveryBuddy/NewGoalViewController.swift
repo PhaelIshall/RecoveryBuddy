@@ -12,6 +12,7 @@ import Parse
 class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
     
     
+    @IBOutlet weak var goalType: UITextField!
     @IBOutlet weak var name: UITextField!
     
     override func viewDidLoad() {
@@ -19,12 +20,14 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         pickerView.dataSource = self;
         pickerView.delegate = self;
         addDetails.delegate = self
-        addDetails.text = "Placeholder text goes right here..."
+        addDetails.text = "Please add details to your goal"
         addDetails.textColor = UIColor.lightGrayColor()
+       
+        
         // Do any additional setup after loading the view.
     }
     
-   
+    var details: String!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,18 +35,42 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     
-     @IBOutlet weak var addDetails: UITextView!
-        
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "continueToGoals"){
-           // createGoal();
-            segue.destinationViewController as! GoalsViewController
-        }
-        else{
-            print("shut up");
+    @IBOutlet weak var addDetails: UITextView!{
+        didSet{
+            details = addDetails.text
         }
     }
-    var pickerDataSource = ["Select goal type", "Meal plan", "Intuitive eating", "Exercise", "Not exercise", "Custom"];
+    
+    
+    var currentGoal = Goal()
+    
+    func createGoal(){
+        currentGoal.belongsTo = User.currentUser()!
+       currentGoal.details = details
+        currentGoal.goalName = name.text!
+        currentGoal.goalType = goaltype
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "continueToGoal"){
+            if (addDetails.text != nil && name.text != nil){
+                let nextGoalController = segue.destinationViewController as! NewGoalViewController2
+                print(addDetails.text)
+                     print(name.text)
+                nextGoalController.details = addDetails.text
+                nextGoalController.goalType = goaltype
+                nextGoalController.name = name.text!
+            
+            }
+                
+                
+            else{
+                print ("No go")
+            }
+          
+        }
+    }
+    var pickerDataSource = ["Meal plan", "Intuitive eating", "Exercise", "Not exercise", "Custom"];
     
     @IBOutlet weak var pickerView: UIPickerView!
     
@@ -76,23 +103,26 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return pickerDataSource[row]
     }
     
+    
+    var goaltype = -1;
+    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
     {
         if(row == 0)
         {
-            
+            goaltype = 0
         }
         else if(row == 1)
         {
-            
+            goaltype = 1
         }
         else if(row == 2)
         {
-            
+            goaltype = 3
         }
         else
         {
-            
+            goaltype = 4
         }
     }
 

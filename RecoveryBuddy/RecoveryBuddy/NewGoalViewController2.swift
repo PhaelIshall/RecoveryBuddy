@@ -10,26 +10,67 @@ import UIKit
 
 class NewGoalViewController2: UIViewController {
 
+    @IBOutlet weak var endDate: UIDatePicker!
+    @IBOutlet weak var startDate: UIDatePicker!
+    
+    
+    var name : String?
+    var details: String?
+    var goalType : Int?
+
+
+    var n: String?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        goal.details = details!
+        goal.goalType = goalType!
+        goal.goalName = name!
+        n = name
+            print("\(n) + \(name)")
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
+override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    let goal = Goal()
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "goBackToGoals" ){
+            var tabBarController = segue.destinationViewController as! UITabBarController;
+            var destinationViewController = tabBarController.viewControllers![1] as! GoalsViewController
+          
+            done()
+        }
     }
-    */
-
+    
+     func done() {
+        if (endDate.date.compare(startDate.date) == NSComparisonResult.OrderedDescending) {
+            
+            goal.progress = 0
+            goal.startDate = startDate.date
+            goal.endDate = endDate.date
+            goal.belongsTo = User.currentUser()!
+               print("\(n) + \(name)")
+            goal.saveInBackgroundWithBlock(nil)
+        }
+        else{
+            
+            print("Goal not saved")
+//            let alertController = UIAlertController(title: "Hey AppCoda", message: "What do you want to do?", preferredStyle: .Alert)
+//            let callAction = UIAlertAction(title: "Call", style: .Default, handler: {
+//                action in
+//                let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
+//                alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+//                self.presentViewController(alertMessage, animated: true, completion: nil)
+//                }
+//            )
+//            alertController.addAction(callAction)
+        }
+    }
+    enum UIAlertControllerStyle : Int {
+        case ActionSheet
+        case Alert
+    }
 }

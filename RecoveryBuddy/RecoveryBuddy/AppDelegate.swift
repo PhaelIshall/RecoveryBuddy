@@ -17,19 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("w8ElXVIPRbukdjdPIyaOTXJeKv4sghdb3eTSB7GE", clientKey: "MYWZPkDh2nW6Hc8uZeaj6FBqyFpLP9Uc8aCwY6XH");
-        do{
-//            try PFUser.logInWithUsername("test", password: "test")
-//            
-//            if let currentUser = PFUser.currentUser() {
-//                print("\(currentUser.username!) logged in successfully")
-//            } else {
-//                print("No logged in user :(")
-//            }
+        self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
+      
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if let user = User.currentUser() {
+           let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("main") as! UITabBarController
+            self.window!.rootViewController = viewController;
+            print("Logged in as \(user)")
         }
-        catch{
-            
+        else{
+            let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController
+            self.window!.rootViewController = viewController;
         }
-        
       
          return true
 

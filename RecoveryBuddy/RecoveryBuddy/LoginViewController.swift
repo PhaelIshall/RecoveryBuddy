@@ -13,7 +13,25 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
-//    @IBOutlet weak var login
+    
+    var valid: Bool = false
+
+    @IBAction func login(sender: AnyObject) {
+        do{
+              print("\(username.text!) \(password.text!)")
+            try PFUser.logInWithUsername(username.text!, password: password.text!)
+            if let currentUser = PFUser.currentUser() {
+                print("\(currentUser.username!) logged in successfully")
+                valid = true
+            } else {
+                print("No logged in user :(")
+            }
+        }
+        catch{
+        }
+    }
+    
+    
     
     @IBAction func SignUpClicked(sender: AnyObject) {
         self.performSegueWithIdentifier("signUp", sender: self)
@@ -23,6 +41,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
 
@@ -36,30 +55,16 @@ class LoginViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "login"){
-            if (checkIfValid()){
+            if (valid){
                 segue.destinationViewController as! UITabBarController
-            }    
+            }
         }
         else{
             segue.destinationViewController as! SignUpViewController
         }
             
-        }
-    
-    
-    func checkIfValid() -> Bool{
-        var valid = false;
-        let query = PFQuery(className: "User");
-        //query.whereKey("objectId", equalTo: (User.currentUser()?.objectId)!)
-        query.whereKey("username", equalTo: username.text!);
-        query.whereKey("password", equalTo: password.text!);
-        query.findObjectsInBackgroundWithBlock({ (results, error) -> Void in
-            if let _ = results as? [PFUser] {
-                valid = true;
-            }
-        })
-        return valid
     }
+
 
     /*
     // MARK: - Navigation
