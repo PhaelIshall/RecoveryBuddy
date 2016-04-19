@@ -38,9 +38,13 @@ override func didReceiveMemoryWarning() {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "goBackToGoals" ){
-            var tabBarController = segue.destinationViewController as! UITabBarController;
-            var destinationViewController = tabBarController.viewControllers![1] as! GoalsViewController
-          
+//            let tabBarController = segue.destinationViewController as! UITabBarController;
+//            let destinationViewController = tabBarController.viewControllers![1] as! NavigationController
+//            let barViewControllers = segue.destinationViewController as! UITabBarController
+//            let nav = barViewControllers.viewControllers![1] as! UINavigationController
+//            let destinationViewController = nav.topViewController as! GoalsViewController
+           segue.destinationViewController as! UITabBarController
+            
             done()
         }
     }

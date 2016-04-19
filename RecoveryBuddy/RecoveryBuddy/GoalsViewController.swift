@@ -10,7 +10,8 @@ import UIKit
 import Parse
 
 class GoalsViewController: UIViewController {
-    
+
+    @IBOutlet weak var navBar: UINavigationBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         

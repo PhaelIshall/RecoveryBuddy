@@ -15,6 +15,7 @@
 		01309AAE1CBFFDF40055018F /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */; };
 		01309AB01CC120410055018F /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AAF1CC120410055018F /* GoalViewController.swift */; };
 		01309AB21CC12F890055018F /* NewGoalViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AB11CC12F890055018F /* NewGoalViewController2.swift */; };
+		01689B5D1CC6302C00E54113 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01689B5C1CC6302C00E54113 /* NavigationController.swift */; };
 		016CCC041CB7C383007168E4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016CCC031CB7C383007168E4 /* LoginViewController.swift */; };
 		017F82DF1CA7D3B5006D5711 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F82DE1CA7D3B5006D5711 /* AppDelegate.swift */; };
 		017F82E11CA7D3B5006D5711 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F82E01CA7D3B5006D5711 /* ViewController.swift */; };
@@ -61,6 +62,7 @@
 		01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
 		01309AAF1CC120410055018F /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		01309AB11CC12F890055018F /* NewGoalViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController2.swift; sourceTree = "<group>"; };
+		01689B5C1CC6302C00E54113 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		016CCC031CB7C383007168E4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		017F82D91CA7D3B5006D5711 /* RecoveryBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecoveryBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		017F82DD1CA7D3B5006D5711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				017F82E21CA7D3B5006D5711 /* Main.storyboard */,
+				01689B5C1CC6302C00E54113 /* NavigationController.swift */,
 				01689B5B1CC60D0E00E54113 /* SignUP */,
 				01689B5A1CC55ACA00E54113 /* Goals */,
 				01309AA01CBF7B7C0055018F /* Models */,
@@ -456,6 +459,7 @@
 				01C5193B1CB588B6002A2095 /* PhotoTakingHelper.swift in Sources */,
 				017F82E11CA7D3B5006D5711 /* ViewController.swift in Sources */,
 				017F82DF1CA7D3B5006D5711 /* AppDelegate.swift in Sources */,
+				01689B5D1CC6302C00E54113 /* NavigationController.swift in Sources */,
 				01309AA31CBF7B7C0055018F /* Goal.swift in Sources */,
 				017F83091CA7D9F5006D5711 /* MilestonesViewController.swift in Sources */,
 				01309AAC1CBFAE630055018F /* tabBarViewController.swift in Sources */,
