@@ -11,18 +11,8 @@ import Parse
 import Foundation
 class User : PFUser{
    // var image: Dynamic<UIImage?> = Dynamic(nil)
-    var Coordinate: PFGeoPoint!{
-        get{
-            return self["Coordinate"]! as! PFGeoPoint
-        }
-        set{
-            self["Coordinate"] = newValue
-        }
-    }
-    
-    
-    
-    
+
+  
     override init () {
         super.init()
     }
@@ -42,6 +32,15 @@ class User : PFUser{
         }
         set{
             self["disorderType"] = newValue
+        }
+    }
+    
+    var age: Int {
+        get{
+            return self["age"] as! Int
+        }
+        set{
+            self["age"] = newValue
         }
     }
     
@@ -72,8 +71,6 @@ class User : PFUser{
         }
     }
     
-    //do we import some date framework?
-    //there is no date data type, probably
    override  var createdAt: NSDate?{
         get{
             return self["createdAt"] as? NSDate

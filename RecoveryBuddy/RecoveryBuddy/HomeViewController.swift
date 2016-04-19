@@ -33,6 +33,12 @@ class HomeViewController: UIViewController {
         if (segue.identifier == "goals"){
             segue.destinationViewController as! GoalsViewController
         }
+        if (segue.identifier == "editProfile"){
+            let profile = segue.destinationViewController as! ProfileViewController
+            profile.picture.image = profilePicture.image
+            
+        }
+        
     }
 
 

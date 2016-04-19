@@ -34,7 +34,7 @@ class GoalViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         goalnameLabel.text = goalname;
-        goaltypeLabel.text = "\(goaltype!)"
+        goaltypeLabel.text = GoalType.getType(goaltype!)
         progressLabel.text = "\(progress!)% done"
         detailsLabel.text = details
         setTime()
