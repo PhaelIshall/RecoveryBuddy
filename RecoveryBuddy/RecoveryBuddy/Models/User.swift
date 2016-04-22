@@ -10,9 +10,7 @@ import UIKit
 import Parse
 import Foundation
 class User : PFUser{
-   // var image: Dynamic<UIImage?> = Dynamic(nil)
 
-  
     override init () {
         super.init()
     }
@@ -44,7 +42,7 @@ class User : PFUser{
         }
     }
     
-    var partner: User{
+    var partner: User? {
         get{
             return self["partner"] as! User
         }

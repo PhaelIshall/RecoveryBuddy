@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import ParseUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("w8ElXVIPRbukdjdPIyaOTXJeKv4sghdb3eTSB7GE", clientKey: "MYWZPkDh2nW6Hc8uZeaj6FBqyFpLP9Uc8aCwY6XH");
         self.window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
-      
+        
+        let acl = PFACL()
+        acl.publicReadAccess = true
+        PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+
         let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         if let user = User.currentUser() {
            let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("main") as! UITabBarController
@@ -28,6 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else{
             let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController
             self.window!.rootViewController = viewController;
+//        let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("first") as! FirstViewController
+//        self.window!.rootViewController = viewController;
+//            
+
         }
       
          return true

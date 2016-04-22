@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		012CC1321CC7BBF200443FE1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012CC1311CC7BBF200443FE1 /* FirstViewController.swift */; };
 		01309AA31CBF7B7C0055018F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AA11CBF7B7C0055018F /* Goal.swift */; };
 		01309AA41CBF7B7C0055018F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AA21CBF7B7C0055018F /* User.swift */; };
 		01309AA61CBF90990055018F /* SignUp2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AA51CBF90990055018F /* SignUp2ViewController.swift */; };
@@ -14,6 +15,8 @@
 		01309AAE1CBFFDF40055018F /* NewGoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */; };
 		01309AB01CC120410055018F /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AAF1CC120410055018F /* GoalViewController.swift */; };
 		01309AB21CC12F890055018F /* NewGoalViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AB11CC12F890055018F /* NewGoalViewController2.swift */; };
+		0139173D1CC8586300401709 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0139173C1CC8586300401709 /* Post.swift */; };
+		013917431CCA491200401709 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013917421CCA491200401709 /* PostTableViewCell.swift */; };
 		01689B5D1CC6302C00E54113 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01689B5C1CC6302C00E54113 /* NavigationController.swift */; };
 		01689B661CC63E3F00E54113 /* GoalsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01689B651CC63E3F00E54113 /* GoalsCell.swift */; };
 		01689B6F1CC6A29800E54113 /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01689B6E1CC6A29800E54113 /* GoalType.swift */; };
@@ -31,6 +34,7 @@
 		017F830C1CA7D9F5006D5711 /* CalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F83071CA7D9F5006D5711 /* CalViewController.swift */; };
 		01C5193B1CB588B6002A2095 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C5193A1CB588B6002A2095 /* PhotoTakingHelper.swift */; };
 		01C5193D1CB599A9002A2095 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C5193C1CB599A8002A2095 /* DiaryViewController.swift */; };
+		01D05FAC1CCA5D7E000E6B92 /* newPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D05FAB1CCA5D7E000E6B92 /* newPostViewController.swift */; };
 		01D5A83F1CAA96CE00DD67CF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D5A83E1CAA96CE00DD67CF /* CoreLocation.framework */; };
 		01D5A8411CAA96D700DD67CF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D5A8401CAA96D700DD67CF /* StoreKit.framework */; };
 		01D5A8431CAA96E300DD67CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D5A8421CAA96E300DD67CF /* SystemConfiguration.framework */; };
@@ -55,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		012CC1311CC7BBF200443FE1 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		01309AA11CBF7B7C0055018F /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		01309AA21CBF7B7C0055018F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		01309AA51CBF90990055018F /* SignUp2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUp2ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +67,8 @@
 		01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController.swift; sourceTree = "<group>"; };
 		01309AAF1CC120410055018F /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
 		01309AB11CC12F890055018F /* NewGoalViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewGoalViewController2.swift; sourceTree = "<group>"; };
+		0139173C1CC8586300401709 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Post.swift; path = ../PhotoTaking/Post.swift; sourceTree = "<group>"; };
+		013917421CCA491200401709 /* PostTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostTableViewCell.swift; path = RecoveryBuddy/PostTableViewCell.swift; sourceTree = "<group>"; };
 		01689B5C1CC6302C00E54113 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NavigationController.swift; path = RecoveryBuddy/NavigationController.swift; sourceTree = "<group>"; };
 		01689B651CC63E3F00E54113 /* GoalsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GoalsCell.swift; path = RecoveryBuddy/GoalsCell.swift; sourceTree = "<group>"; };
 		01689B6E1CC6A29800E54113 /* GoalType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
@@ -83,7 +90,9 @@
 		017F83071CA7D9F5006D5711 /* CalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalViewController.swift; sourceTree = "<group>"; };
 		017F830D1CA7E3EE006D5711 /* RecoveryBuddy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecoveryBuddy-Bridging-Header.h"; sourceTree = "<group>"; };
 		01C5193A1CB588B6002A2095 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
-		01C5193C1CB599A8002A2095 /* DiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		01C5193C1CB599A8002A2095 /* DiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryViewController.swift; path = RecoveryBuddy/DiaryViewController.swift; sourceTree = "<group>"; };
+		01D05FA71CCA5593000E6B92 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = "../../../Library/Developer/Xcode/DerivedData/RecoveryBuddy-flawryxaqsxbotfcgyoqdijeynjs/Build/Products/Debug-iphonesimulator/Bond.framework"; sourceTree = "<group>"; };
+		01D05FAB1CCA5D7E000E6B92 /* newPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newPostViewController.swift; sourceTree = "<group>"; };
 		01D5A83E1CAA96CE00DD67CF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		01D5A8401CAA96D700DD67CF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		01D5A8421CAA96E300DD67CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -131,11 +140,23 @@
 		01309AA01CBF7B7C0055018F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0139173C1CC8586300401709 /* Post.swift */,
 				01309AA11CBF7B7C0055018F /* Goal.swift */,
 				017F82DE1CA7D3B5006D5711 /* AppDelegate.swift */,
 				01309AA21CBF7B7C0055018F /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		013917311CC84E7D00401709 /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				01C5193C1CB599A8002A2095 /* DiaryViewController.swift */,
+				01D05FAB1CCA5D7E000E6B92 /* newPostViewController.swift */,
+				01C519391CB5887F002A2095 /* PhotoTaking */,
+			);
+			name = Diary;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		01689B5A1CC55ACA00E54113 /* Goals */ = {
@@ -172,7 +193,6 @@
 			children = (
 				017F83071CA7D9F5006D5711 /* CalViewController.swift */,
 				01309AAB1CBFAE630055018F /* tabBarViewController.swift */,
-				01C5193C1CB599A8002A2095 /* DiaryViewController.swift */,
 				017F83051CA7D9F5006D5711 /* HomeViewController.swift */,
 				01689B701CC6A9C800E54113 /* ProfileViewController.swift */,
 			);
@@ -183,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				016CCC031CB7C383007168E4 /* LoginViewController.swift */,
+				012CC1311CC7BBF200443FE1 /* FirstViewController.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -191,16 +212,18 @@
 			isa = PBXGroup;
 			children = (
 				01689B651CC63E3F00E54113 /* GoalsCell.swift */,
+				013917421CCA491200401709 /* PostTableViewCell.swift */,
 				01689B6E1CC6A29800E54113 /* GoalType.swift */,
 			);
 			name = Cells;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		017F82D01CA7D3B5006D5711 = {
 			isa = PBXGroup;
 			children = (
+				017F82E21CA7D3B5006D5711 /* Main.storyboard */,
 				01689B5C1CC6302C00E54113 /* NavigationController.swift */,
-				01689B671CC63E4500E54113 /* Cells */,
 				017F82DB1CA7D3B5006D5711 /* RecoveryBuddy */,
 				017F82F11CA7D3B5006D5711 /* RecoveryBuddyTests */,
 				017F82DA1CA7D3B5006D5711 /* Products */,
@@ -222,14 +245,14 @@
 		017F82DB1CA7D3B5006D5711 /* RecoveryBuddy */ = {
 			isa = PBXGroup;
 			children = (
+				013917311CC84E7D00401709 /* Diary */,
+				01689B671CC63E4500E54113 /* Cells */,
+				01689B601CC63A2800E54113 /* Milestones */,
 				01689B621CC63A5700E54113 /* Login */,
 				01689B611CC63A4200E54113 /* MainViewControllers */,
-				01689B601CC63A2800E54113 /* Milestones */,
-				017F82E21CA7D3B5006D5711 /* Main.storyboard */,
 				01689B5B1CC60D0E00E54113 /* SignUP */,
 				01689B5A1CC55ACA00E54113 /* Goals */,
 				01309AA01CBF7B7C0055018F /* Models */,
-				01C519391CB5887F002A2095 /* PhotoTaking */,
 				017F82E51CA7D3B5006D5711 /* Images.xcassets */,
 				017F82E71CA7D3B5006D5711 /* LaunchScreen.xib */,
 				017F82DC1CA7D3B5006D5711 /* Supporting Files */,
@@ -267,7 +290,8 @@
 			children = (
 				01C5193A1CB588B6002A2095 /* PhotoTakingHelper.swift */,
 			);
-			path = PhotoTaking;
+			name = PhotoTaking;
+			path = RecoveryBuddy/PhotoTaking;
 			sourceTree = "<group>";
 		};
 		039C8D3EC52229C72C4CEC89 /* Pods */ = {
@@ -282,6 +306,7 @@
 		91C45500D17FD51160952C9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				01D05FA71CCA5593000E6B92 /* Bond.framework */,
 				01D5A8501CAA972D00DD67CF /* AudioToolbox.framework */,
 				01D5A84E1CAA972200DD67CF /* CFNetwork.framework */,
 				01D5A84C1CAA971900DD67CF /* CoreGraphics.framework */,
@@ -486,17 +511,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				01689B661CC63E3F00E54113 /* GoalsCell.swift in Sources */,
+				0139173D1CC8586300401709 /* Post.swift in Sources */,
 				01309AB01CC120410055018F /* GoalViewController.swift in Sources */,
 				017F830A1CA7D9F5006D5711 /* HomeViewController.swift in Sources */,
 				01C5193D1CB599A9002A2095 /* DiaryViewController.swift in Sources */,
 				01309AAE1CBFFDF40055018F /* NewGoalViewController.swift in Sources */,
 				01309AA61CBF90990055018F /* SignUp2ViewController.swift in Sources */,
+				012CC1321CC7BBF200443FE1 /* FirstViewController.swift in Sources */,
 				01689B711CC6A9C800E54113 /* ProfileViewController.swift in Sources */,
 				01309AB21CC12F890055018F /* NewGoalViewController2.swift in Sources */,
 				017F83081CA7D9F5006D5711 /* SignUpViewController.swift in Sources */,
 				01689B6F1CC6A29800E54113 /* GoalType.swift in Sources */,
 				01C5193B1CB588B6002A2095 /* PhotoTakingHelper.swift in Sources */,
+				01D05FAC1CCA5D7E000E6B92 /* newPostViewController.swift in Sources */,
 				017F82DF1CA7D3B5006D5711 /* AppDelegate.swift in Sources */,
+				013917431CCA491200401709 /* PostTableViewCell.swift in Sources */,
 				01689B5D1CC6302C00E54113 /* NavigationController.swift in Sources */,
 				01309AA31CBF7B7C0055018F /* Goal.swift in Sources */,
 				017F83091CA7D9F5006D5711 /* MilestonesViewController.swift in Sources */,
@@ -533,6 +562,7 @@
 				017F82E31CA7D3B5006D5711 /* Base */,
 			);
 			name = Main.storyboard;
+			path = RecoveryBuddy;
 			sourceTree = "<group>";
 		};
 		017F82E71CA7D3B5006D5711 /* LaunchScreen.xib */ = {

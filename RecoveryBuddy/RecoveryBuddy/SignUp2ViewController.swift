@@ -9,13 +9,37 @@
 import UIKit
 
 class SignUp2ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-
+    var user: User? 
   
+    @IBAction func signUp(sender: AnyObject) {
+        print(self.user)
+        
+        user?.disorderType = myLabel.text!
+        
+        print(user?.disorderType)
+        user!.signUpInBackgroundWithBlock{ (succeeded: Bool, error: NSError?) -> Void in
+            
+            
+            if let error = error {
+                _ = error.userInfo["error"] as? NSString
+                // Show the errorString somewhere and let the user try again.
+                
+                print("user not made")
+            } else {
+                // Hooray! Let them use the app now.
+            }
+        }
+        
+        performSegueWithIdentifier("finishSignUp", sender: self)
+        print("kljkgijl")
+    }
 
     @IBOutlet weak var myLabel: UILabel!
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        
+      
     }
     
 
@@ -62,15 +86,20 @@ class SignUp2ViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
   
-    /*
+    
     // MARK: - Navigation
     
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+       if (segue.identifier == "finishSignUp"){
+//            segue.destinationViewController as! UITabBarController
+//           
     }
-    */
+        
+       
+    }
+    
+    
 
 }

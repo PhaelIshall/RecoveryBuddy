@@ -1,0 +1,31 @@
+//
+//  PostTableViewCell.swift
+//  
+//
+//  Created by Wiem Ben Rim on 4/22/16.
+//
+//
+
+ 
+import UIKit
+
+class PostTableViewCell: UITableViewCell {
+    
+        
+    @IBOutlet weak var postImageView: UIImageView!
+ 
+    @IBOutlet weak var username: UILabel!
+
+    @IBOutlet weak var content: UILabel!
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}

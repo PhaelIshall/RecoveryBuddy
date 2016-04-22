@@ -6,7 +6,7 @@ enum GoalType {
     case Custom
     
     
-   static func getType(var count: Int) -> String{
+   static func getType(count: Int) -> String{
         if (count == 0){
             return "Meal Plan"
         }

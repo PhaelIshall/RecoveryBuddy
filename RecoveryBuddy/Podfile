@@ -8,6 +8,7 @@ target 'RecoveryBuddy' do
 pod 'Parse'
 pod 'ParseUI'
 pod 'MBCalendarKit', '~>3.0.4'
+
 end
 
 target 'RecoveryBuddyTests' do

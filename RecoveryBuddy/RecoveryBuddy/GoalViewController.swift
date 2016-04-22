@@ -19,6 +19,9 @@ class GoalViewController: UIViewController {
     @IBOutlet weak var startDateLabel: UILabel!
     
     
+    @IBAction func back(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     var goalname, details: String?
     var goaltype, progress: Int?
@@ -33,6 +36,8 @@ class GoalViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.hidesBackButton = true;
         goalnameLabel.text = goalname;
         goaltypeLabel.text = GoalType.getType(goaltype!)
         progressLabel.text = "\(progress!)% done"

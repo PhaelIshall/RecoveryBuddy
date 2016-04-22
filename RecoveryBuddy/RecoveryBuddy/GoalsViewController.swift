@@ -37,7 +37,7 @@ class GoalsViewController: UIViewController {
     
     func retrieveGoals(){
         let query = PFQuery(className: "Goal");
-        //query.whereKey("belongTo", equalTo: (User.currentUser()?.objectId)!);
+        query.whereKey("belongsTo", equalTo: User.currentUser()!);
         query.findObjectsInBackgroundWithBlock({
             (goals, error) -> Void in
             

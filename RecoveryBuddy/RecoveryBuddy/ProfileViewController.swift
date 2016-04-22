@@ -12,33 +12,36 @@ import Parse
 class ProfileViewController: UIViewController {
 
     @IBOutlet weak var partner: UILabel!
-    @IBOutlet weak var age: UILabel!
-    @IBOutlet weak var disorderType: UILabel!
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var emailAddress: UILabel!
-    @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var ageLabel: UILabel!
+    @IBOutlet weak var disorderTypeLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var emailAddressLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var picture: UIImageView!
     
     
-    var usernameOfPartner: String?
+    var usernameOfPartner, age, disorderType, email, fullname, username: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
     picture.layer.cornerRadius = picture.frame.size.width/2;
     picture.layer.borderWidth = 1;
     picture.clipsToBounds = true;
-    usernameOfPartner = User.currentUser()!["partner"].username
-    partner.text = usernameOfPartner
-        //age.text = "erfds"
-        //age.text = "\(User.currentUser()!.age) years of age"
-        //disorderType.text = PFUser.currentUser()!["disorderType"] as! String
-        //name.text = User.currentUser()!.fullname
-        //emailAddress.text = "frwedawfe \(User.currentUser()?.email)"
-    username.text = User.currentUser()?.username
         
-
         
-        // Do any additional setup after loading the view.
+        if let _ = usernameOfPartner{
+            
+             partner.text = usernameOfPartner
+        }
+    
+        ageLabel.text = "\(age!) years of age"
+        disorderTypeLabel.text = disorderType
+        nameLabel.text = fullname
+        emailAddressLabel.text = "\(email!)"
+    usernameLabel.text = username
+        
+        
+   // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

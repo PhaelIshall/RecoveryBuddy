@@ -23,12 +23,14 @@ class LoginViewController: UIViewController {
             if let currentUser = PFUser.currentUser() {
                 print("\(currentUser.username!) logged in successfully")
                 valid = true
+                performSegueWithIdentifier("login", sender: self)
             } else {
                 print("No logged in user :(")
             }
         }
         catch{
         }
+        
     }
     
     
@@ -65,7 +67,9 @@ class LoginViewController: UIViewController {
             }
         }
         else{
-            segue.destinationViewController as! SignUpViewController
+            let nav = segue.destinationViewController as! UINavigationController
+            nav.topViewController as! SignUpViewController
+
         }
             
     }
