@@ -6,17 +6,29 @@
 //  Copyright © 2016 Wiem Ben Rim. All rights reserved.
 //
 
+import Parse
 import UIKit
 
 class SignUp2ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     var user: User? 
-  
+    var profilePic: NSData?
+    
     @IBAction func signUp(sender: AnyObject) {
         print(self.user)
         
         user?.disorderType = myLabel.text!
+        let imageFile = PFFile(data: profilePic!)
+        do{
+            
+           try imageFile!.save()
+            user?.profilePic = imageFile!
+        }
+        catch{
+            
+        }
         
         print(user?.disorderType)
+        
         user!.signUpInBackgroundWithBlock{ (succeeded: Bool, error: NSError?) -> Void in
             
             

@@ -18,6 +18,8 @@ class NewGoalViewController2: UIViewController {
     var details: String?
     var goalType : Int?
 
+    
+   
 
     var n: String?
     override func viewDidLoad() {
@@ -37,20 +39,35 @@ override func didReceiveMemoryWarning() {
     let goal = Goal()
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "goBackToGoals" ){
-//            let tabBarController = segue.destinationViewController as! UITabBarController;
-//            let destinationViewController = tabBarController.viewControllers![1] as! NavigationController
-//            let barViewControllers = segue.destinationViewController as! UITabBarController
-//            let nav = barViewControllers.viewControllers![1] as! UINavigationController
-//            let destinationViewController = nav.topViewController as! GoalsViewController
-           segue.destinationViewController as! UITabBarController
-            
-            done()
-        }
+//        if (segue.identifier == "goBackToGoals" ){
+////            let tabBarController = segue.destinationViewController as! UITabBarController;
+////            let destinationViewController = tabBarController.viewControllers![1] as! NavigationController
+////            let barViewControllers = segue.destinationViewController as! UITabBarController
+////            let nav = barViewControllers.viewControllers![1] as! UINavigationController
+////            let destinationViewController = nav.topViewController as! GoalsViewController
+//           segue.destinationViewController as! UITabBarController
+//            
+//            done()
+//        }
     }
     
-     func done() {
-        if (endDate.date.compare(startDate.date) == NSComparisonResult.OrderedDescending) {
+    @IBAction func doneSend(sender: AnyObject) {
+        let d = done()
+        if (d == true){
+            self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        }
+        else{
+            let alertController = UIAlertController(title: "Cannot make goal", message: "The goal's start date is after the end date, or the duration of the goal is longer than 2 weeks", preferredStyle: .Alert)
+            let callAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(callAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+        
+
+    }
+    
+     func done() -> Bool{
+        if (endDate.date.compare(startDate.date) == NSComparisonResult.OrderedDescending && startDate?.date.numberOfDaysUntilDateTime(endDate.date) < 14) {
             
             goal.progress = 0
             goal.startDate = startDate.date
@@ -58,19 +75,13 @@ override func didReceiveMemoryWarning() {
             goal.belongsTo = User.currentUser()!
                print("\(n) + \(name)")
             goal.saveInBackgroundWithBlock(nil)
+            return true
+            
         }
         else{
             
-            print("Goal not saved")
-//            let alertController = UIAlertController(title: "Hey AppCoda", message: "What do you want to do?", preferredStyle: .Alert)
-//            let callAction = UIAlertAction(title: "Call", style: .Default, handler: {
-//                action in
-//                let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available yet. Please retry later.", preferredStyle: .Alert)
-//                alertMessage.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
-//                self.presentViewController(alertMessage, animated: true, completion: nil)
-//                }
-//            )
-//            alertController.addAction(callAction)
+            
+            return false
         }
     }
     enum UIAlertControllerStyle : Int {

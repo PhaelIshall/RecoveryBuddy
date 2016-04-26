@@ -9,20 +9,29 @@
 import UIKit
 import Parse
 
-class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate {
+class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, UITextFieldDelegate {
     
     
     @IBOutlet weak var goalType: UITextField!
     @IBOutlet weak var name: UITextField!
     
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        name.delegate = self
         pickerView.dataSource = self;
         pickerView.delegate = self;
         addDetails.delegate = self
         addDetails.text = "Please add details to your goal"
         addDetails.textColor = UIColor.lightGrayColor()
-       
+        let tapGestureReconizer = UITapGestureRecognizer(target: self, action: "tap:")
+        view.addGestureRecognizer(tapGestureReconizer)
         
         // Do any additional setup after loading the view.
     }
@@ -125,5 +134,22 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             goaltype = 4
         }
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+    func textViewShouldReturn(textField: UITextView) -> Bool {
+        textField.resignFirstResponder()
+        return true
+        
+    }
+    
+    func tap(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
 
 }

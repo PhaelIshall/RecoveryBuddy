@@ -1,0 +1,10 @@
+{
+  "applications": {
+    "RecoveryBuddy": {
+      "applicationId": "w8ElXVIPRbukdjdPIyaOTXJeKv4sghdb3eTSB7GE"
+    },
+    "_default": {
+      "link": "RecoveryBuddy"
+    }
+  }
+}

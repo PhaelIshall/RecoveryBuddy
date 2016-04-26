@@ -10,28 +10,33 @@ import UIKit
 
 class GoalViewController: UIViewController {
 
-    @IBOutlet weak var goalnameLabel: UILabel!
-    @IBOutlet weak var goaltypeLabel: UILabel!
+    @IBOutlet weak var goalnameLabel: UITextField!
+    @IBOutlet weak var goaltypeLabel: UITextField!
 
-    @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var progressLabel:UITextField!
     @IBOutlet weak var detailsLabel: UITextView!
-    @IBOutlet weak var endDateLabel: UILabel!
-    @IBOutlet weak var startDateLabel: UILabel!
+    @IBOutlet weak var endDateLabel:UITextField!
+    @IBOutlet weak var startDateLabel: UITextField!
     
     
     @IBAction func back(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
+ 
     var goalname, details: String?
     var goaltype, progress: Int?
     var startdate, endDate: NSDate?
+    
+    @IBAction func update(sender: AnyObject) {
+    
+    
+    }
     
     func setTime(){
         let formatter = NSDateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         startDateLabel.text = formatter.stringFromDate(startdate!)
-        endDateLabel.text = formatter.stringFromDate(startdate!)
+        endDateLabel.text = formatter.stringFromDate(endDate!)
     }
     
     override func viewDidLoad() {
@@ -42,6 +47,7 @@ class GoalViewController: UIViewController {
         goaltypeLabel.text = GoalType.getType(goaltype!)
         progressLabel.text = "\(progress!)% done"
         detailsLabel.text = details
+    
         setTime()
         // Do any additional setup after loading the view.
     }
@@ -51,6 +57,102 @@ class GoalViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(animated: Bool) {
+        goalnameLabel.enabled = false
+        goaltypeLabel.enabled = false
+        progressLabel.enabled = false
+        detailsLabel.editable = false
+        startDateLabel.enabled = false
+        endDateLabel.enabled = false
+        
+        let dateDifference = startdate?.numberOfDaysUntilDateTime(endDate!)
+        for i in 0...dateDifference!{
+            days.append("Day \(i)")
+        }
+        let currentDate = NSDate()
+        dateDifferenceFromNow = startdate?.numberOfDaysUntilDateTime(currentDate)
+        print(dateDifference)
+        
 
+        
+        
+        tableview.reloadData()
+
+    }
+    var dateDifferenceFromNow: Int?
+    
+    var days: [String] = []
+    
+    @IBOutlet weak var tableview: UITableView!{
+        didSet{
+            tableview.delegate = self;
+            tableview.dataSource = self;
+            
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "openDay"){
+           let dayController = segue.destinationViewController as! DayViewController
+             var indexPath = self.tableview.indexPathForSelectedRow!
+            dayController.day = days[indexPath.item]
+        }
+    }
+    
+    
+var selectedDay: String?
 
 }
+extension GoalViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            return days.count
+        }
+    
+    
+    
+        
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("daysCell", forIndexPath: indexPath)
+       selectedDay = days[indexPath.item]
+        cell.textLabel?.text = selectedDay
+        print(indexPath.item)
+        
+        //cell.goalProgress.text = "You are \(retrievedGoals[indexPath.item].progress) done.";
+        //cell.textLabel?.text = retrievedGoals[indexPath.item].goalName;
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+      //  self.performSegueWithIdentifier("openDay", sender: self)
+    }
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.item >= dateDifferenceFromNow){
+            cell.backgroundColor = UIColor(red: 206/255, green: 206/255, blue: 206/255, alpha: 1)
+            
+        }
+    }
+
+        
+}
+    
+extension NSDate {
+    func numberOfDaysUntilDateTime(toDateTime: NSDate, inTimeZone timeZone: NSTimeZone? = nil) -> Int {
+        let calendar = NSCalendar.currentCalendar()
+        if let timeZone = timeZone {
+            calendar.timeZone = timeZone
+        }
+        
+        var fromDate: NSDate?, toDate: NSDate?
+        
+        calendar.rangeOfUnit(.Day, startDate: &fromDate, interval: nil, forDate: self)
+        calendar.rangeOfUnit(.Day, startDate: &toDate, interval: nil, forDate: toDateTime)
+        
+        let difference = calendar.components(.Day, fromDate: fromDate!, toDate: toDate!, options: [])
+        return difference.day
+    }
+}
+
+
+
+

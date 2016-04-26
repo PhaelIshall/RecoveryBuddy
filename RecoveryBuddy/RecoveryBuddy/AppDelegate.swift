@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var pushNotificationController:PushNotificationController?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         Parse.setApplicationId("w8ElXVIPRbukdjdPIyaOTXJeKv4sghdb3eTSB7GE", clientKey: "MYWZPkDh2nW6Hc8uZeaj6FBqyFpLP9Uc8aCwY6XH");
@@ -33,14 +34,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         else{
             let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("loginScreen") as! LoginViewController
             self.window!.rootViewController = viewController;
-//        let viewController = mainStoryboard.instantiateViewControllerWithIdentifier("first") as! FirstViewController
-//        self.window!.rootViewController = viewController;
-//            
 
         }
-      
+        self.pushNotificationController = PushNotificationController()
+        
+        // Register for Push Notitications, if running iOS 8
+        if application.respondsToSelector("registerUserNotificationSettings:") {
+            
+            let types:UIUserNotificationType = (.Alert)
+            let settings:UIUserNotificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+            
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+            
+        } else {
+            // Register for Push Notifications before iOS 8
+            application.registerForRemoteNotificationTypes( .Alert)
+        }
          return true
 
+        
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        print("didRegisterForRemoteNotificationsWithDeviceToken")
+        
+        let currentInstallation = PFInstallation.currentInstallation()
+        currentInstallation.addUniqueObject("Goal", forKey: "channels")
+        currentInstallation.saveInBackground()
+
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        print("failed to register for remote notifications:  (error)")
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("didReceiveRemoteNotification")
+        PFPush.handlePush(userInfo)
     }
 
     func applicationWillResignActive(application: UIApplication) {

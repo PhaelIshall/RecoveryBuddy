@@ -8,7 +8,9 @@ target 'RecoveryBuddy' do
 pod 'Parse'
 pod 'ParseUI'
 pod 'MBCalendarKit', '~>3.0.4'
-
+pod 'YLProgressBar', '~> 3.8.1'
+pod 'Bond', '4.3.0'
+pod 'MMDrawerController', '~> 0.5.7'
 end
 
 target 'RecoveryBuddyTests' do

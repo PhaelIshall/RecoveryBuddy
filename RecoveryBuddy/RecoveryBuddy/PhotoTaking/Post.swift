@@ -1,6 +1,6 @@
 import Foundation
 import Parse
-
+import Bond
 
 // 1
 class Post : PFObject, PFSubclassing {
@@ -10,7 +10,7 @@ class Post : PFObject, PFSubclassing {
     @NSManaged var user: User?
     @NSManaged var content: String?
     
-   var image: UIImage?
+  var image: Observable<UIImage?> = Observable(nil)
 
    
     //MARK: PFSubclassing Protocol
@@ -36,7 +36,7 @@ class Post : PFObject, PFSubclassing {
     var photoUploadTask: UIBackgroundTaskIdentifier?
     
     func uploadPost(s: String) {
-        if let image = image {
+        if let image = image.value {
             let imageData = UIImageJPEGRepresentation(image, 0.8)!
             let imageFile = PFFile(data: imageData)
             
@@ -57,4 +57,21 @@ class Post : PFObject, PFSubclassing {
             self.content = s;
             saveInBackgroundWithBlock(nil)
         }
-    }}
+    }
+    
+    func downloadImage() {
+        // if image is not downloaded yet, get it
+        // 1
+        if (image.value == nil) {
+            // 2
+            imageFile?.getDataInBackgroundWithBlock { (data: NSData?, error: NSError?) -> Void in
+                if let data = data {
+                    let image = UIImage(data: data, scale:1.0)!
+                    // 3
+                    self.image.value = image
+                }
+            }
+        }
+    }
+
+}

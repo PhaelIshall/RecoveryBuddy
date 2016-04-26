@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -43,6 +43,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGestureReconizer = UITapGestureRecognizer(target: self, action: "tap:")
+        view.addGestureRecognizer(tapGestureReconizer)
+        username.delegate = self
+        password.delegate = self
         
         
         
@@ -67,11 +71,22 @@ class LoginViewController: UIViewController {
             }
         }
         else{
-            let nav = segue.destinationViewController as! UINavigationController
-            nav.topViewController as! SignUpViewController
+            let nav = segue.destinationViewController as! SignUpViewController
+           // nav.topViewController as! SignUpViewController
 
         }
             
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+
+    }
+    
+ 
+    func tap(sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
 
 

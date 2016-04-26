@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     
     
     var usernameOfPartner, age, disorderType, email, fullname, username: String?
+    var imageData: NSData?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,7 +40,14 @@ class ProfileViewController: UIViewController {
         nameLabel.text = fullname
         emailAddressLabel.text = "\(email!)"
     usernameLabel.text = username
-        
+        do{
+            
+            try picture.image = UIImage(data: imageData!)
+        }
+        catch{
+            
+        }
+       
         
    // Do any additional setup after loading the view.
     }

@@ -12,7 +12,9 @@ import Parse
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var partnerImage: UIImageView!
+
+    @IBOutlet weak var username: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true;
@@ -25,9 +27,6 @@ class HomeViewController: UIViewController {
         profilePicture.clipsToBounds = true;
 
 
-        partnerImage.layer.cornerRadius = profilePicture.frame.size.width/4;
-        partnerImage.layer.borderWidth = 1;
-        partnerImage.clipsToBounds = true;
 
         if let user = PFUser.currentUser() {
 //            var q = PFQuery(className: "User")
@@ -41,18 +40,31 @@ class HomeViewController: UIViewController {
             age = user["age"] as! Int
             disorder = user["disorderType"] as! String
             email = user["email"] as! String
+            
             //partner = user["partner"] as! PFUser
+            do{
+                
+                let img = user["profilePic"] as! PFFile
+                username.text = User.currentUser()?.username
+                try self.pic = img.getData()
+                try profilePicture.image = UIImage(data: img.getData())
+                            }
+            catch{
+                
+            }
         }
-
+        
+        
     }
-    
-    
+
+
 
     var disorder = " ";
     var name = " "
     var email = " "
     var age: Int?
     var partner: PFUser?
+    var pic: NSData?
     @IBOutlet weak var profilePicture: UIImageView!
     
     override func didReceiveMemoryWarning() {
@@ -75,6 +87,7 @@ class HomeViewController: UIViewController {
             profile.disorderType = disorder
             profile.email = email
             profile.usernameOfPartner = partner?.username
+            profile.imageData = pic
         }
         
     }

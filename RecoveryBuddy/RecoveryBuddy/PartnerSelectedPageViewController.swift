@@ -1,35 +1,117 @@
-//
-//  PartnerSelectedPageViewController.swift
-//  RecoveryBuddy
-//
-//  Created by Wiem Ben Rim on 4/22/16.
-//  Copyright © 2016 Wiem Ben Rim. All rights reserved.
-//
-
 import UIKit
+import Parse
+
 
 class PartnerSelectedPageViewController: UIPageViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        dataSource = self
+        if let firstViewController = orderedViewControllers.first {
+            setViewControllers([firstViewController],
+                direction: .Forward,
+                animated: true,
+                completion: nil)
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private (set) lazy var orderedViewControllers: [UIViewController] = {
+        return [self.newColoredViewController("Profile"),
+            self.newColoredViewController("Goals")]
+    }()
+    
+    private func newColoredViewController(color: String) -> UIViewController {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+ if (color == "Goals"){
+            
+            let nav = storyboard.instantiateViewControllerWithIdentifier("nav\(color)") as! UINavigationController
+            let controller = nav.topViewController   as! GoalsViewController
+            controller.partnerGoals = true
+             return nav 
+        }
+        else{
+            
+            let nav = storyboard.instantiateViewControllerWithIdentifier("nav\(color)") as! UINavigationController
+          let controller = nav.topViewController as! PartnerProfileViewController
+    
+    
+            let partnerQuery = User.query()
+            partnerQuery!.whereKey("objectId", equalTo: User.currentUser()!.objectId!)
+            partnerQuery?.includeKey("partner")
+    
+            var partnerSelected: User?
+    
+    partnerQuery?.findObjectsInBackgroundWithBlock({ (p, error) -> Void in
+        if let partner = p as? [User] {
+            for entry in partner{
+                if (entry != User.currentUser()){
+                    partnerSelected = entry
+                    do{
+                        try controller.partnerPic.image = UIImage(data: (partnerSelected?.partner!.profilePic.getData())!)
+                    }
+                    catch{
+                        
+                    }
+                    
+                    
+                }
+              
+            }
+        }
+        
+    })
+    
+             return nav
+        }
+     
+       
     }
-    */
+    
+}
 
+// MARK: UIPageViewControllerDataSource
+
+extension PartnerSelectedPageViewController: UIPageViewControllerDataSource {
+    
+    func pageViewController(pageViewController: UIPageViewController,
+        viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
+            guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+                return nil
+            }
+            
+            let previousIndex = viewControllerIndex - 1
+            
+            guard previousIndex >= 0 else {
+                return nil
+            }
+            
+            guard orderedViewControllers.count > previousIndex else {
+                return nil
+            }
+            
+            return orderedViewControllers[previousIndex]
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController,
+        viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
+            guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
+                return nil
+            }
+            
+            let nextIndex = viewControllerIndex + 1
+            let orderedViewControllersCount = orderedViewControllers.count
+            
+            guard orderedViewControllersCount != nextIndex else {
+                return nil
+            }
+            
+            guard orderedViewControllersCount > nextIndex else {
+                return nil
+            }
+            
+            return orderedViewControllers[nextIndex]
+    }
+    
 }

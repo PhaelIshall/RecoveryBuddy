@@ -11,6 +11,7 @@ import Parse
 
 class newPostViewController: UIViewController, UITextViewDelegate {
     
+    @IBOutlet weak var image: UIImageView!
     @IBAction func cancel(sender: AnyObject) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -19,35 +20,33 @@ class newPostViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func Finished(sender: AnyObject) {
         post.content = postContent.text
-      
+        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     @IBOutlet weak var done: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.title = "New Post"
+        postContent.text = post.content
         postContent.delegate = self
         
         // Do any additional setup after loading the view.
     }
     
-    
+
     @IBOutlet weak var postContent: UITextView!
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
         postContent.text = "Write your post here"
         postContent.textColor = UIColor.lightGrayColor()
-        //postContent.layer.borderColor = UIColor.lightGrayColor().CGColor
-//        postContent.layer.borderWidth = 1.0;
-//        postContent.layer.cornerRadius = 2.0;
-
-        postContent.editable = true
+      postContent.editable = true
        //postContent.becomeFirstResponder()
         
     }
@@ -56,7 +55,6 @@ class newPostViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func takePhoto(sender: AnyObject) {
         // instantiate photo taking class, provide callback for when photo  is selected
-        
         
         photoTakingHelper = PhotoTakingHelper(viewController: self, successCallback: { (image: UIImage?) in
             print("received a callback")
@@ -73,7 +71,9 @@ class newPostViewController: UIViewController, UITextViewDelegate {
                 }
                 do{
                     
-                    self.post.image = image
+                    self.post.image.value = image
+                    self.image.image = image
+                    print(self.image.image)
                     self.post.uploadPost(self.postContent.text)
                     
                     print ("CONTENT IS \(self.postContent.text)")

@@ -51,6 +51,15 @@ class User : PFUser{
         }
     }
     
+    var profilePic: PFFile{
+        get{
+            return self["profilePic"] as! PFFile
+        }
+        set{
+            self["profilePic"] = newValue
+        }
+    }
+    
     var emailVerified: Bool{
         get{
             return self["emailVerified"] as! Bool

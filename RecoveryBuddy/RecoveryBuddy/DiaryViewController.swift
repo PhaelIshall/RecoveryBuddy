@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Bond
 
 class DiaryViewController: UIViewController {
 var photoTakingHelper: PhotoTakingHelper?
@@ -21,6 +22,7 @@ var photoTakingHelper: PhotoTakingHelper?
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+      
         
         //Need to make it from both sides but for now okay
         let partnerQuery = PFQuery(className: "Partner")
@@ -53,7 +55,7 @@ var photoTakingHelper: PhotoTakingHelper?
                 do{
                     let data = try post.imageFile?.getData()
                     if data != nil{
-                        post.image = UIImage(data: data!, scale:1.0)
+                        post.image.value = UIImage(data: data!, scale:1.0)
 
                     }
                     
@@ -83,36 +85,7 @@ var photoTakingHelper: PhotoTakingHelper?
                 
         
     }
-//    @IBAction func takePhoto(sender: AnyObject) {
-//        // instantiate photo taking class, provide callback for when photo  is selected
-//        
-//        
-//        photoTakingHelper = PhotoTakingHelper(viewController: self, successCallback: { (image: UIImage?) in
-//            print("received a callback")
-//            if let image = image {
-//                let imageData = UIImageJPEGRepresentation(image, 0.8)!
-//                let imageFile = PFFile(data: imageData)
-//                do{
-//                   
-//                    try imageFile!.save()
-//                }
-//               
-//                catch{
-//                    
-//                }
-//                do{
-//                    let post = Post()
-//                    post.image = image
-//                    post.uploadPost()
-//                    try post.save()
-//                }
-//                catch{
-//                    
-//                }
-//                
-//            }
-//        })
-//    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -130,11 +103,19 @@ extension DiaryViewController: UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         // 2
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell")! as! PostTableViewCell
-        cell.postImageView.image = posts[indexPath.row].image
-        //cell.textLabel!.text = "Post"
-        cell.username.text = posts[indexPath.row].user?.username
-        cell.content.text = posts[indexPath.row].content
         
+        
+        let post = posts[indexPath.row]
+         post.downloadImage()
+        cell.post = post
+        
+//        cell.postImageView.image = posts[indexPath.row].image
+//        //cell.textLabel!.text = "Post"
+//        
+//        cell.post =  
+//        cell.username.text = posts[indexPath.row].user?.username
+//        cell.content.text = posts[indexPath.row].content
+//        
         return cell
     }
     

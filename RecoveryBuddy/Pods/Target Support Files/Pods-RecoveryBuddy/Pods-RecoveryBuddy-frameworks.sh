@@ -85,13 +85,19 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-RecoveryBuddy/Bolts.framework"
+  install_framework "Pods-RecoveryBuddy/Bond.framework"
   install_framework "Pods-RecoveryBuddy/MBCalendarKit.framework"
+  install_framework "Pods-RecoveryBuddy/MMDrawerController.framework"
   install_framework "Pods-RecoveryBuddy/Parse.framework"
   install_framework "Pods-RecoveryBuddy/ParseUI.framework"
+  install_framework "Pods-RecoveryBuddy/YLProgressBar.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-RecoveryBuddy/Bolts.framework"
+  install_framework "Pods-RecoveryBuddy/Bond.framework"
   install_framework "Pods-RecoveryBuddy/MBCalendarKit.framework"
+  install_framework "Pods-RecoveryBuddy/MMDrawerController.framework"
   install_framework "Pods-RecoveryBuddy/Parse.framework"
   install_framework "Pods-RecoveryBuddy/ParseUI.framework"
+  install_framework "Pods-RecoveryBuddy/YLProgressBar.framework"
 fi

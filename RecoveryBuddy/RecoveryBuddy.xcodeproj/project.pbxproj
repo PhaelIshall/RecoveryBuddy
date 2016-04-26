@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0103433F1CCE554900B770C3 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0103433E1CCE554900B770C3 /* ParseHelper.swift */; };
 		012CC1321CC7BBF200443FE1 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012CC1311CC7BBF200443FE1 /* FirstViewController.swift */; };
 		01309AA31CBF7B7C0055018F /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AA11CBF7B7C0055018F /* Goal.swift */; };
 		01309AA41CBF7B7C0055018F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01309AA21CBF7B7C0055018F /* User.swift */; };
@@ -28,13 +29,18 @@
 		017F82E91CA7D3B5006D5711 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 017F82E71CA7D3B5006D5711 /* LaunchScreen.xib */; };
 		017F82F51CA7D3B5006D5711 /* RecoveryBuddyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F82F41CA7D3B5006D5711 /* RecoveryBuddyTests.swift */; };
 		017F83081CA7D9F5006D5711 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F83031CA7D9F5006D5711 /* SignUpViewController.swift */; };
-		017F83091CA7D9F5006D5711 /* MilestonesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F83041CA7D9F5006D5711 /* MilestonesViewController.swift */; };
+		017F83091CA7D9F5006D5711 /* PartnerProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F83041CA7D9F5006D5711 /* PartnerProfileViewController.swift */; };
 		017F830A1CA7D9F5006D5711 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F83051CA7D9F5006D5711 /* HomeViewController.swift */; };
 		017F830B1CA7D9F5006D5711 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F83061CA7D9F5006D5711 /* GoalsViewController.swift */; };
 		017F830C1CA7D9F5006D5711 /* CalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017F83071CA7D9F5006D5711 /* CalViewController.swift */; };
+		0181E3931CCE459800F5A4D1 /* YLProgressBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0181E3921CCE459800F5A4D1 /* YLProgressBar.framework */; };
+		0188E6B51CCF5FA300E20B41 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0188E6B41CCF5FA300E20B41 /* DayViewController.swift */; };
 		01C5193B1CB588B6002A2095 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C5193A1CB588B6002A2095 /* PhotoTakingHelper.swift */; };
 		01C5193D1CB599A9002A2095 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C5193C1CB599A8002A2095 /* DiaryViewController.swift */; };
 		01D05FAC1CCA5D7E000E6B92 /* newPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D05FAB1CCA5D7E000E6B92 /* newPostViewController.swift */; };
+		01D05FB01CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D05FAF1CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift */; };
+		01D05FB21CCAD702000E6B92 /* UserPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D05FB11CCAD702000E6B92 /* UserPageViewController.swift */; };
+		01D05FB61CCD866C000E6B92 /* PushNotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D05FB51CCD866C000E6B92 /* PushNotificationController.swift */; };
 		01D5A83F1CAA96CE00DD67CF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D5A83E1CAA96CE00DD67CF /* CoreLocation.framework */; };
 		01D5A8411CAA96D700DD67CF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D5A8401CAA96D700DD67CF /* StoreKit.framework */; };
 		01D5A8431CAA96E300DD67CF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 01D5A8421CAA96E300DD67CF /* SystemConfiguration.framework */; };
@@ -59,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0103433E1CCE554900B770C3 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		012CC1311CC7BBF200443FE1 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		01309AA11CBF7B7C0055018F /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
 		01309AA21CBF7B7C0055018F /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -84,15 +91,20 @@
 		017F82F31CA7D3B5006D5711 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		017F82F41CA7D3B5006D5711 /* RecoveryBuddyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoveryBuddyTests.swift; sourceTree = "<group>"; };
 		017F83031CA7D9F5006D5711 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		017F83041CA7D9F5006D5711 /* MilestonesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MilestonesViewController.swift; path = ../MilestonesViewController.swift; sourceTree = "<group>"; };
+		017F83041CA7D9F5006D5711 /* PartnerProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnerProfileViewController.swift; path = ../PartnerProfileViewController.swift; sourceTree = "<group>"; };
 		017F83051CA7D9F5006D5711 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		017F83061CA7D9F5006D5711 /* GoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		017F83071CA7D9F5006D5711 /* CalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalViewController.swift; sourceTree = "<group>"; };
 		017F830D1CA7E3EE006D5711 /* RecoveryBuddy-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RecoveryBuddy-Bridging-Header.h"; sourceTree = "<group>"; };
+		0181E3921CCE459800F5A4D1 /* YLProgressBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YLProgressBar.framework; path = "Pods/../build/Debug-iphoneos/YLProgressBar.framework"; sourceTree = "<group>"; };
+		0188E6B41CCF5FA300E20B41 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DayViewController.swift; path = ../DayViewController.swift; sourceTree = "<group>"; };
 		01C5193A1CB588B6002A2095 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		01C5193C1CB599A8002A2095 /* DiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryViewController.swift; path = RecoveryBuddy/DiaryViewController.swift; sourceTree = "<group>"; };
 		01D05FA71CCA5593000E6B92 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = "../../../Library/Developer/Xcode/DerivedData/RecoveryBuddy-flawryxaqsxbotfcgyoqdijeynjs/Build/Products/Debug-iphonesimulator/Bond.framework"; sourceTree = "<group>"; };
 		01D05FAB1CCA5D7E000E6B92 /* newPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newPostViewController.swift; sourceTree = "<group>"; };
+		01D05FAF1CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnerSelectedPageViewController.swift; path = RecoveryBuddy/PartnerSelectedPageViewController.swift; sourceTree = "<group>"; };
+		01D05FB11CCAD702000E6B92 /* UserPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPageViewController.swift; path = RecoveryBuddy/UserPageViewController.swift; sourceTree = "<group>"; };
+		01D05FB51CCD866C000E6B92 /* PushNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationController.swift; path = RecoveryBuddy/PushNotificationController.swift; sourceTree = SOURCE_ROOT; };
 		01D5A83E1CAA96CE00DD67CF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		01D5A8401CAA96D700DD67CF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		01D5A8421CAA96E300DD67CF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -113,6 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0181E3931CCE459800F5A4D1 /* YLProgressBar.framework in Frameworks */,
 				01D5A8511CAA972D00DD67CF /* AudioToolbox.framework in Frameworks */,
 				01D5A84F1CAA972200DD67CF /* CFNetwork.framework in Frameworks */,
 				01D5A84D1CAA971900DD67CF /* CoreGraphics.framework in Frameworks */,
@@ -143,6 +156,7 @@
 				0139173C1CC8586300401709 /* Post.swift */,
 				01309AA11CBF7B7C0055018F /* Goal.swift */,
 				017F82DE1CA7D3B5006D5711 /* AppDelegate.swift */,
+				01D05FB51CCD866C000E6B92 /* PushNotificationController.swift */,
 				01309AA21CBF7B7C0055018F /* User.swift */,
 			);
 			path = Models;
@@ -152,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				01C5193C1CB599A8002A2095 /* DiaryViewController.swift */,
+				0103433E1CCE554900B770C3 /* ParseHelper.swift */,
 				01D05FAB1CCA5D7E000E6B92 /* newPostViewController.swift */,
 				01C519391CB5887F002A2095 /* PhotoTaking */,
 			);
@@ -162,6 +177,7 @@
 		01689B5A1CC55ACA00E54113 /* Goals */ = {
 			isa = PBXGroup;
 			children = (
+				0188E6B41CCF5FA300E20B41 /* DayViewController.swift */,
 				017F83061CA7D9F5006D5711 /* GoalsViewController.swift */,
 				01309AAF1CC120410055018F /* GoalViewController.swift */,
 				01309AAD1CBFFDF40055018F /* NewGoalViewController.swift */,
@@ -179,12 +195,12 @@
 			name = SignUP;
 			sourceTree = "<group>";
 		};
-		01689B601CC63A2800E54113 /* Milestones */ = {
+		01689B601CC63A2800E54113 /* Partner */ = {
 			isa = PBXGroup;
 			children = (
-				017F83041CA7D9F5006D5711 /* MilestonesViewController.swift */,
+				017F83041CA7D9F5006D5711 /* PartnerProfileViewController.swift */,
 			);
-			name = Milestones;
+			name = Partner;
 			path = PhotoTaking;
 			sourceTree = "<group>";
 		};
@@ -223,6 +239,8 @@
 			isa = PBXGroup;
 			children = (
 				017F82E21CA7D3B5006D5711 /* Main.storyboard */,
+				01D05FB11CCAD702000E6B92 /* UserPageViewController.swift */,
+				01D05FAF1CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift */,
 				01689B5C1CC6302C00E54113 /* NavigationController.swift */,
 				017F82DB1CA7D3B5006D5711 /* RecoveryBuddy */,
 				017F82F11CA7D3B5006D5711 /* RecoveryBuddyTests */,
@@ -247,7 +265,7 @@
 			children = (
 				013917311CC84E7D00401709 /* Diary */,
 				01689B671CC63E4500E54113 /* Cells */,
-				01689B601CC63A2800E54113 /* Milestones */,
+				01689B601CC63A2800E54113 /* Partner */,
 				01689B621CC63A5700E54113 /* Login */,
 				01689B611CC63A4200E54113 /* MainViewControllers */,
 				01689B5B1CC60D0E00E54113 /* SignUP */,
@@ -306,6 +324,7 @@
 		91C45500D17FD51160952C9B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0181E3921CCE459800F5A4D1 /* YLProgressBar.framework */,
 				01D05FA71CCA5593000E6B92 /* Bond.framework */,
 				01D5A8501CAA972D00DD67CF /* AudioToolbox.framework */,
 				01D5A84E1CAA972200DD67CF /* CFNetwork.framework */,
@@ -519,17 +538,22 @@
 				01309AA61CBF90990055018F /* SignUp2ViewController.swift in Sources */,
 				012CC1321CC7BBF200443FE1 /* FirstViewController.swift in Sources */,
 				01689B711CC6A9C800E54113 /* ProfileViewController.swift in Sources */,
+				0103433F1CCE554900B770C3 /* ParseHelper.swift in Sources */,
 				01309AB21CC12F890055018F /* NewGoalViewController2.swift in Sources */,
+				01D05FB61CCD866C000E6B92 /* PushNotificationController.swift in Sources */,
 				017F83081CA7D9F5006D5711 /* SignUpViewController.swift in Sources */,
 				01689B6F1CC6A29800E54113 /* GoalType.swift in Sources */,
 				01C5193B1CB588B6002A2095 /* PhotoTakingHelper.swift in Sources */,
 				01D05FAC1CCA5D7E000E6B92 /* newPostViewController.swift in Sources */,
+				01D05FB21CCAD702000E6B92 /* UserPageViewController.swift in Sources */,
 				017F82DF1CA7D3B5006D5711 /* AppDelegate.swift in Sources */,
 				013917431CCA491200401709 /* PostTableViewCell.swift in Sources */,
 				01689B5D1CC6302C00E54113 /* NavigationController.swift in Sources */,
+				01D05FB01CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift in Sources */,
 				01309AA31CBF7B7C0055018F /* Goal.swift in Sources */,
-				017F83091CA7D9F5006D5711 /* MilestonesViewController.swift in Sources */,
+				017F83091CA7D9F5006D5711 /* PartnerProfileViewController.swift in Sources */,
 				01309AAC1CBFAE630055018F /* tabBarViewController.swift in Sources */,
+				0188E6B51CCF5FA300E20B41 /* DayViewController.swift in Sources */,
 				01309AA41CBF7B7C0055018F /* User.swift in Sources */,
 				017F830C1CA7D9F5006D5711 /* CalViewController.swift in Sources */,
 				016CCC041CB7C383007168E4 /* LoginViewController.swift in Sources */,
@@ -593,7 +617,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wiem Ben Rim (U9Y9SYA6K3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -638,7 +662,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wiem Ben Rim (U9Y9SYA6K3)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -666,6 +690,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Wiem/Desktop/RecBud,
@@ -673,6 +698,7 @@
 					/Users/Wiem/Desktop/Writing/Projects/research,
 					paper/iStalker/iStalk2,
 					3/Frameworks,
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = RecoveryBuddy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -681,7 +707,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RecoveryBuddy.253;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RecoveryBuddy-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -694,6 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/Wiem/Desktop/RecBud,
@@ -701,6 +730,7 @@
 					/Users/Wiem/Desktop/Writing/Projects/research,
 					paper/iStalker/iStalk2,
 					3/Frameworks,
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = RecoveryBuddy/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -709,7 +739,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.RecoveryBuddy.253;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "RecoveryBuddy-Bridging-Header.h";
 			};
 			name = Release;
@@ -731,7 +763,7 @@
 				INFOPLIST_FILE = RecoveryBuddyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de9bca45-08a0-4b55-988b-100c7cf9522e";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecoveryBuddy.app/RecoveryBuddy";
 			};
 			name = Debug;
@@ -749,7 +781,7 @@
 				INFOPLIST_FILE = RecoveryBuddyTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "de9bca45-08a0-4b55-988b-100c7cf9522e";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RecoveryBuddy.app/RecoveryBuddy";
 			};
 			name = Release;

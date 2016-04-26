@@ -11,22 +11,20 @@ import Parse
 
 class PartnerProfileViewController: UIViewController{
     
+    @IBOutlet weak var partnerPic: UIImageView!
+    
+    var partnerPicData: NSData?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-       
-        
-        
+              
     }
     
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        if (partnerPicData != nil){
+            partnerPic.image = UIImage(data: partnerPicData!)
+        }
+        
     }
-    
-
-    
 }
-
