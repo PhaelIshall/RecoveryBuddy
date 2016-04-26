@@ -172,6 +172,8 @@ class GoalsViewController: UIViewController {
            openGoal.goaltype = selectedGoal?.goalType
             openGoal.startdate = selectedGoal?.startDate
             openGoal.endDate = selectedGoal?.endDate
+            
+            openGoal.goalId = selectedGoal?.objectId!
         }
     }
     

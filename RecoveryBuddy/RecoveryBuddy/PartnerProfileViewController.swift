@@ -14,8 +14,13 @@ class PartnerProfileViewController: UIViewController{
     @IBOutlet weak var partnerPic: UIImageView!
     
     var partnerPicData: NSData?
+    @IBOutlet weak var age: UILabel!
+
     
+    @IBOutlet weak var fullname: UILabel!
+    @IBOutlet weak var username: UILabel!
     
+    @IBOutlet weak var email: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
               
@@ -23,7 +28,9 @@ class PartnerProfileViewController: UIViewController{
     
     override func viewDidAppear(animated: Bool) {
         if (partnerPicData != nil){
+            
             partnerPic.image = UIImage(data: partnerPicData!)
+            
         }
         
     }

@@ -43,13 +43,24 @@ class PartnerSelectedPageViewController: UIPageViewController {
     
             var partnerSelected: User?
     
+    var partnerExists = false;
+    
     partnerQuery?.findObjectsInBackgroundWithBlock({ (p, error) -> Void in
         if let partner = p as? [User] {
             for entry in partner{
                 if (entry != User.currentUser()){
+                    partnerExists = true;
                     partnerSelected = entry
                     do{
-                        try controller.partnerPic.image = UIImage(data: (partnerSelected?.partner!.profilePic.getData())!)
+                        controller.partnerPic.layer.cornerRadius = controller.partnerPic.frame.size.width/2;
+                        controller.partnerPic.layer.borderWidth = 1;
+                        controller.partnerPic.clipsToBounds = true;
+                        
+                     try   controller.partnerPic.image = UIImage(data: (partnerSelected?.partner!.profilePic.getData())!)
+                        controller.username.text = partnerSelected?.username
+                        controller.fullname.text = partnerSelected?.fullname
+                        controller.age.text = "\(partnerSelected!.age)"
+                         controller.email.text = partnerSelected?.email
                     }
                     catch{
                         

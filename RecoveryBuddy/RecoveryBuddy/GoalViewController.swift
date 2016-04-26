@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Parse
 
 class GoalViewController: UIViewController {
+    
+    var goalId: String?
 
     @IBOutlet weak var goalnameLabel: UITextField!
     @IBOutlet weak var goaltypeLabel: UITextField!
@@ -43,12 +46,15 @@ class GoalViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.hidesBackButton = true;
+        setTime()
         goalnameLabel.text = goalname;
         goaltypeLabel.text = GoalType.getType(goaltype!)
-        progressLabel.text = "\(progress!)% done"
+        print(dateDifferenceFromNow)
+        print(dateDifference)
+        
         detailsLabel.text = details
     
-        setTime()
+        progressLabel.text = "\(progress!)% done"
         // Do any additional setup after loading the view.
     }
 
@@ -56,6 +62,8 @@ class GoalViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    var dateDifference: Int?
     
     override func viewDidAppear(animated: Bool) {
         goalnameLabel.enabled = false
@@ -65,13 +73,12 @@ class GoalViewController: UIViewController {
         startDateLabel.enabled = false
         endDateLabel.enabled = false
         
-        let dateDifference = startdate?.numberOfDaysUntilDateTime(endDate!)
+        dateDifference = startdate?.numberOfDaysUntilDateTime(endDate!)
         for i in 0...dateDifference!{
             days.append("Day \(i)")
         }
         let currentDate = NSDate()
         dateDifferenceFromNow = startdate?.numberOfDaysUntilDateTime(currentDate)
-        print(dateDifference)
         
 
         
@@ -93,9 +100,28 @@ class GoalViewController: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "openDay"){
-           let dayController = segue.destinationViewController as! DayViewController
-             var indexPath = self.tableview.indexPathForSelectedRow!
-            dayController.day = days[indexPath.item]
+            let indexPath = self.tableview.indexPathForSelectedRow!
+     
+                let dayController = segue.destinationViewController as! DayViewController
+                dayController.exists = false
+                dayController.day = days[indexPath.item]
+                dayController.goal = goalId!
+                let q = PFQuery(className: "Days")
+                q.whereKey("dayNumber", equalTo: days[indexPath.item])
+                q.whereKey("goal", equalTo: goalId!)
+                //q.whereKey("user", equalTo: User.currentUser()!)
+                q.findObjectsInBackgroundWithBlock { (result, error) -> Void in
+                    
+                    for p in result! {
+                        dayController.q1 = p["q1"] as? String
+                        dayController.q2 = p["q2"] as? String
+                        dayController.q3 = p["q3"] as? String
+                        dayController.exists = true
+                        print(p)
+                    }
+                }
+           
+            
         }
     }
     
@@ -117,9 +143,17 @@ extension GoalViewController: UITableViewDataSource, UITableViewDelegate {
         cell.textLabel?.text = selectedDay
         print(indexPath.item)
         
+        cell.selectionStyle = UITableViewCellSelectionStyle.None
         //cell.goalProgress.text = "You are \(retrievedGoals[indexPath.item].progress) done.";
         //cell.textLabel?.text = retrievedGoals[indexPath.item].goalName;
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
+        if (indexPath.item > dateDifferenceFromNow){
+            return nil
+        }
+        return indexPath
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -127,9 +161,8 @@ extension GoalViewController: UITableViewDataSource, UITableViewDelegate {
       //  self.performSegueWithIdentifier("openDay", sender: self)
     }
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.item >= dateDifferenceFromNow){
+        if (indexPath.item > dateDifferenceFromNow){
             cell.backgroundColor = UIColor(red: 206/255, green: 206/255, blue: 206/255, alpha: 1)
-            
         }
     }
 

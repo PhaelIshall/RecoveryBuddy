@@ -66,6 +66,10 @@ override func didReceiveMemoryWarning() {
 
     }
     
+    @IBAction func back(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
      func done() -> Bool{
         if (endDate.date.compare(startDate.date) == NSComparisonResult.OrderedDescending && startDate?.date.numberOfDaysUntilDateTime(endDate.date) < 14) {
             

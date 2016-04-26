@@ -102,7 +102,7 @@
 		01C5193C1CB599A8002A2095 /* DiaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DiaryViewController.swift; path = RecoveryBuddy/DiaryViewController.swift; sourceTree = "<group>"; };
 		01D05FA71CCA5593000E6B92 /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = "../../../Library/Developer/Xcode/DerivedData/RecoveryBuddy-flawryxaqsxbotfcgyoqdijeynjs/Build/Products/Debug-iphonesimulator/Bond.framework"; sourceTree = "<group>"; };
 		01D05FAB1CCA5D7E000E6B92 /* newPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = newPostViewController.swift; sourceTree = "<group>"; };
-		01D05FAF1CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnerSelectedPageViewController.swift; path = RecoveryBuddy/PartnerSelectedPageViewController.swift; sourceTree = "<group>"; };
+		01D05FAF1CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnerSelectedPageViewController.swift; path = ../PartnerSelectedPageViewController.swift; sourceTree = "<group>"; };
 		01D05FB11CCAD702000E6B92 /* UserPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPageViewController.swift; path = RecoveryBuddy/UserPageViewController.swift; sourceTree = "<group>"; };
 		01D05FB51CCD866C000E6B92 /* PushNotificationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushNotificationController.swift; path = RecoveryBuddy/PushNotificationController.swift; sourceTree = SOURCE_ROOT; };
 		01D5A83E1CAA96CE00DD67CF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -198,6 +198,7 @@
 		01689B601CC63A2800E54113 /* Partner */ = {
 			isa = PBXGroup;
 			children = (
+				01D05FAF1CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift */,
 				017F83041CA7D9F5006D5711 /* PartnerProfileViewController.swift */,
 			);
 			name = Partner;
@@ -240,7 +241,6 @@
 			children = (
 				017F82E21CA7D3B5006D5711 /* Main.storyboard */,
 				01D05FB11CCAD702000E6B92 /* UserPageViewController.swift */,
-				01D05FAF1CCA9BC8000E6B92 /* PartnerSelectedPageViewController.swift */,
 				01689B5C1CC6302C00E54113 /* NavigationController.swift */,
 				017F82DB1CA7D3B5006D5711 /* RecoveryBuddy */,
 				017F82F11CA7D3B5006D5711 /* RecoveryBuddyTests */,

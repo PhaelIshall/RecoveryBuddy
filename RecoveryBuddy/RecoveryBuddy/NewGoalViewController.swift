@@ -11,6 +11,9 @@ import Parse
 
 class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, UITextFieldDelegate {
     
+    @IBAction func cancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBOutlet weak var goalType: UITextField!
     @IBOutlet weak var name: UITextField!
