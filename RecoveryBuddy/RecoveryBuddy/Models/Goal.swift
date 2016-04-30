@@ -27,8 +27,7 @@ class Goal: PFObject, PFSubclassing {
             self.registerSubclass()
         }
     }
-
-    
+  
     var belongsTo: User{
         get{
             return self["belongsTo"] as! User

@@ -20,17 +20,16 @@ class newPostViewController: UIViewController, UITextViewDelegate {
 
     @IBAction func Finished(sender: AnyObject) {
         post.content = postContent.text
-        
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
     @IBOutlet weak var done: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.title = "New Post"
         postContent.text = post.content
         postContent.delegate = self
-        
-        // Do any additional setup after loading the view.
     }
     
 
@@ -46,8 +45,7 @@ class newPostViewController: UIViewController, UITextViewDelegate {
         
         postContent.text = "Write your post here"
         postContent.textColor = UIColor.lightGrayColor()
-      postContent.editable = true
-       //postContent.becomeFirstResponder()
+        postContent.editable = true
         
     }
 
@@ -80,25 +78,20 @@ class newPostViewController: UIViewController, UITextViewDelegate {
                     try self.post.save()
                 }
                 catch{
-                    
                 }
-                
             }
         })
     }
     
     func textViewDidBeginEditing(textView: UITextView) {
-        
-        if postContent.textColor == UIColor.lightGrayColor() {
+       if postContent.textColor == UIColor.lightGrayColor() {
             postContent.text = ""
             postContent.textColor = UIColor.blackColor()
         }
     }
     
     func textViewDidEndEditing(textView: UITextView) {
-        
         if postContent.text == "" {
-            
             postContent.text = "Placeholder text ..."
             postContent.textColor = UIColor.lightGrayColor()
         }

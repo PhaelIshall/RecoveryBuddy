@@ -6,10 +6,6 @@ class UserPageViewController: UIPageViewController {
         super.viewDidLoad()
         
         dataSource = self
-        
-        
-        
-        
         if let firstViewController = orderedViewControllers.first {
             setViewControllers([firstViewController],
                 direction: .Forward,
@@ -18,34 +14,27 @@ class UserPageViewController: UIPageViewController {
         }
     }
     
+    var username: String?
+    
+    
+    
     private (set) lazy var orderedViewControllers: [UIViewController] = {
-        return [self.newColoredViewController("UserProfile"),
-            self.newColoredViewController("Goals")]
+        return [self.newSubViewController("UserProfile"),
+            self.newSubViewController("Goals")]
     }()
     
-    private func newColoredViewController(color: String) -> UIViewController {
-        
+    private func newSubViewController(indentifier: String) -> UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        
-        
-        if (color == "Goals"){
-            
+        if (indentifier == "Goals"){
             let nav = storyboard.instantiateViewControllerWithIdentifier("navGoals") as! UINavigationController
-            let controller = nav.topViewController   as! GoalsViewController
-//            controller.partnerGoals = true
+            _ = nav.topViewController   as! GoalsViewController
             return nav
         }
         else{
-            
-            let controller = storyboard.instantiateViewControllerWithIdentifier("UserProfile")
-            
+            let controller = storyboard.instantiateViewControllerWithIdentifier("UserProfile") as! NavigationController
             return controller
         }
-        
-        
     }
-    
 }
 
 // MARK: UserPageViewControllerDataSource
@@ -57,17 +46,13 @@ extension UserPageViewController: UIPageViewControllerDataSource {
             guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
                 return nil
             }
-            
             let previousIndex = viewControllerIndex - 1
-            
             guard previousIndex >= 0 else {
                 return nil
             }
-            
             guard orderedViewControllers.count > previousIndex else {
                 return nil
             }
-            
             return orderedViewControllers[previousIndex]
     }
     
@@ -76,18 +61,15 @@ extension UserPageViewController: UIPageViewControllerDataSource {
             guard let viewControllerIndex = orderedViewControllers.indexOf(viewController) else {
                 return nil
             }
-            
             let nextIndex = viewControllerIndex + 1
             let orderedViewControllersCount = orderedViewControllers.count
             
             guard orderedViewControllersCount != nextIndex else {
                 return nil
             }
-            
             guard orderedViewControllersCount > nextIndex else {
                 return nil
             }
-            
             return orderedViewControllers[nextIndex]
     }
     

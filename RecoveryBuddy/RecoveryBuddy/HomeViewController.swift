@@ -15,46 +15,34 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var username: UILabel!
 
+    
+    override func viewWillAppear(animated: Bool) {
+        self.navigationItem.rightBarButtonItem!.enabled = false; //This is because Edit profile is not done yet
+        if let pic = pic{
+            profilePicture.image = UIImage(data: pic)
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true;
-
-        //self.navigationController.navigationBar.tintColor = [UIColor lightGrayColor];
-        // Do any additional setup after loading the view, typically from a nib.
-       
         profilePicture.layer.cornerRadius = profilePicture.frame.size.width/2;
         profilePicture.layer.borderWidth = 1;
         profilePicture.clipsToBounds = true;
-
-
-
         if let user = PFUser.currentUser() {
-//            var q = PFQuery(className: "User")
-//            q.whereKey("objectId", equalTo: user.objectId!)
-//            q.includeKey("partner")
-//            q.getFirstObjectInBackgroundWithBlock({ (par, error) -> Void in
-//                self.partner = par as! PFUser
-//            })
-//            
             name = user["fullName"] as! String
-            age = user["age"] as! Int
+            age = user["age"] as? Int
             disorder = user["disorderType"] as! String
             email = user["email"] as! String
-            
-            //partner = user["partner"] as! PFUser
             do{
-                
                 let img = user["profilePic"] as! PFFile
                 username.text = User.currentUser()?.username
                 try self.pic = img.getData()
                 try profilePicture.image = UIImage(data: img.getData())
-                            }
+                }
             catch{
-                
             }
         }
-        
-        
     }
 
 
@@ -77,10 +65,7 @@ class HomeViewController: UIViewController {
             segue.destinationViewController as! GoalsViewController
         }
         if (segue.identifier == "editProfile"){
-        
-            print(User.currentUser())
-            
-            let profile = segue.destinationViewController as! ProfileViewController
+    let profile = segue.destinationViewController as! ProfileViewController
             profile.username = User.currentUser()?.username
             profile.fullname = name
             profile.age = "\(age!)"

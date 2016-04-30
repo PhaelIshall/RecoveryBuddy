@@ -1,12 +1,3 @@
-//
-//  PostTableViewCell.swift
-//  
-//
-//  Created by Wiem Ben Rim on 4/22/16.
-//
-//
-
- 
 import UIKit
 import Parse
 
@@ -28,10 +19,9 @@ class PostTableViewCell: UITableViewCell {
     
     var post: Post? {
         didSet {
-            // 1
             if let post = post {
-                //2
-                // bind the image of the post to the 'postImage' view
+                content.text = post.content
+                username.text = post.user?.username
                 post.image.bindTo(postImageView.bnd_image)
             }
         }

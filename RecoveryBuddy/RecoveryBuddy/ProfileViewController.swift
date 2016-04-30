@@ -39,33 +39,13 @@ class ProfileViewController: UIViewController {
         disorderTypeLabel.text = disorderType
         nameLabel.text = fullname
         emailAddressLabel.text = "\(email!)"
-    usernameLabel.text = username
-        do{
-            
-            try picture.image = UIImage(data: imageData!)
-        }
-        catch{
-            
-        }
-       
-        
-   // Do any additional setup after loading the view.
+        usernameLabel.text = username
+        picture.image = UIImage(data: imageData!)
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

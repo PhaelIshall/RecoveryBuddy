@@ -7,9 +7,6 @@ enum GoalType {
     
     
    static func getType(count: Int) -> String{
-        if (count == 0){
-            return "Meal Plan"
-        }
         if (count == 1){
             return "Intuitive eating"
         }
@@ -18,8 +15,11 @@ enum GoalType {
         } else if (count == 3){
             return "Not exercise"
         }
+        else if (count == 4){
+        return "Custom"
+        }
         else {
-            return "Custom"
+            return "Meal Plan"
         }
     }
 }

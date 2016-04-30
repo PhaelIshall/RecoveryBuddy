@@ -14,36 +14,26 @@ class SignUp2ViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     var profilePic: NSData?
     
     @IBAction func signUp(sender: AnyObject) {
-        print(self.user)
-        
         user?.disorderType = myLabel.text!
         let imageFile = PFFile(data: profilePic!)
         do{
-            
            try imageFile!.save()
+            
             user?.profilePic = imageFile!
+             
         }
         catch{
-            
         }
-        
-        print(user?.disorderType)
         
         user!.signUpInBackgroundWithBlock{ (succeeded: Bool, error: NSError?) -> Void in
-            
-            
-            if let error = error {
-                _ = error.userInfo["error"] as? NSString
-                // Show the errorString somewhere and let the user try again.
-                
+          
+        if let error = error {
+            _ = error.userInfo["error"] as? NSString
                 print("user not made")
-            } else {
-                // Hooray! Let them use the app now.
             }
         }
-        
         performSegueWithIdentifier("finishSignUp", sender: self)
-        print("kljkgijl")
+
     }
 
     @IBOutlet weak var myLabel: UILabel!
@@ -93,25 +83,15 @@ class SignUp2ViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         myLabel.text = pickerData[row]
-        //color  and center the label's background
       
     }
     
-  
-    
-    // MARK: - Navigation
-    
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-       if (segue.identifier == "finishSignUp"){
-//            segue.destinationViewController as! UITabBarController
-//           
+        if (segue.identifier == "finishSignUp"){
+//            let tabBarcontroller = segue.destinationViewController as! UITabBarController
+//            let nav = tabBarcontroller.navigationController as! NavigationController
+//            let controller = nav.topViewController as! HomeViewController
+//            controller.profilePicture.image = UIImage(data: profilePic!)
+        }
     }
-        
-       
-    }
-    
-    
-
 }

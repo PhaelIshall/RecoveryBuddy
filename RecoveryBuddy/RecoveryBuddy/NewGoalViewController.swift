@@ -11,13 +11,26 @@ import Parse
 
 class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate, UITextFieldDelegate {
     
+    var details: String!
+    var goaltype = -1;
+    var currentGoal = Goal()
+    var pickerDataSource = ["Meal plan", "Intuitive eating", "Exercise", "Not exercise", "Custom"];
+    
+    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet weak var goalType: UITextField!
+    @IBOutlet weak var name: UITextField!
+    @IBOutlet weak var addDetails: UITextView!{
+        didSet{
+            details = addDetails.text
+        }
+    }
+    
+    
+
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
-    @IBOutlet weak var goalType: UITextField!
-    @IBOutlet weak var name: UITextField!
-    
+   
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.setNavigationBarHidden(true, animated: true)
@@ -35,11 +48,8 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         addDetails.textColor = UIColor.lightGrayColor()
         let tapGestureReconizer = UITapGestureRecognizer(target: self, action: "tap:")
         view.addGestureRecognizer(tapGestureReconizer)
-        
-        // Do any additional setup after loading the view.
     }
     
-    var details: String!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -47,44 +57,33 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     
-    @IBOutlet weak var addDetails: UITextView!{
-        didSet{
-            details = addDetails.text
-        }
-    }
     
-    
-    var currentGoal = Goal()
     
     func createGoal(){
         currentGoal.belongsTo = User.currentUser()!
-       currentGoal.details = details
+        currentGoal.details = details
         currentGoal.goalName = name.text!
         currentGoal.goalType = goaltype
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "continueToGoal"){
-            if (addDetails.text != nil && name.text != nil){
+            if (addDetails.text != "" && name.text != ""){
                 let nextGoalController = segue.destinationViewController as! NewGoalViewController2
-                print(addDetails.text)
-                     print(name.text)
                 nextGoalController.details = addDetails.text
                 nextGoalController.goalType = goaltype
                 nextGoalController.name = name.text!
             
             }
-                
-                
             else{
-                print ("No go")
+                let alertController = UIAlertController(title: "Invalid fields", message: "Please make sure to fill in a name and some details: some incentive that goes back to why you chose this goal", preferredStyle: .Alert)
+                let callAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+                alertController.addAction(callAction)
+                self.presentViewController(alertController, animated: true, completion: nil)
             }
-          
         }
     }
-    var pickerDataSource = ["Meal plan", "Intuitive eating", "Exercise", "Not exercise", "Custom"];
     
-    @IBOutlet weak var pickerView: UIPickerView!
     
     func textViewDidBeginEditing(textView: UITextView) {
         
@@ -97,7 +96,6 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     func textViewDidEndEditing(textView: UITextView) {
         
         if addDetails.text == "" {
-            
             addDetails.text = "Placeholder text ..."
             addDetails.textColor = UIColor.lightGrayColor()
         }
@@ -115,26 +113,17 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         return pickerDataSource[row]
     }
     
+   
     
-    var goaltype = -1;
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
-    {
-        if(row == 0)
-        {
-            goaltype = 0
-        }
-        else if(row == 1)
-        {
-            goaltype = 1
-        }
-        else if(row == 2)
-        {
-            goaltype = 3
-        }
-        else
-        {
-            goaltype = 4
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
+        switch row{
+        case 0: goaltype = 0
+        case 1: goaltype = 1
+        case 2: goaltype = 2
+        case 3: goaltype = 3
+        case 4: goaltype = 4
+        default : goaltype = 0
+            print("row \(row) and type \(goaltype)")
         }
     }
     

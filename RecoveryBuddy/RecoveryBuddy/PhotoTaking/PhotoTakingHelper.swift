@@ -12,7 +12,6 @@ typealias PhotoTakingHelperCallback = UIImage? -> Void
 
 class PhotoTakingHelper : NSObject {
     
-    /** View controller on which View Controllers should be presented */
     weak var viewController: UIViewController!
     var successCallback: PhotoTakingHelperCallback
     var imagePickerController: UIImagePickerController?
@@ -82,13 +81,6 @@ extension PhotoTakingHelper: UIImagePickerControllerDelegate, UINavigationContro
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         viewController.dismissViewControllerAnimated(false, completion: nil)
-//        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let nav = storyboard.instantiateViewControllerWithIdentifier("navi") as! UINavigationController
-//        nav.topViewController as! newPostViewController
-////        let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("myVCID") as UIViewController
-//        viewController.presentViewController(nav, animated: false, completion: nil)
-//        
-        
         
       successCallback(image)
     }

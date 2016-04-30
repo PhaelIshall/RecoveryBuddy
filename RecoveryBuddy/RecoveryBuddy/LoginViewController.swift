@@ -18,7 +18,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func login(sender: AnyObject) {
         do{
-              print("\(username.text!) \(password.text!)")
             try PFUser.logInWithUsername(username.text!, password: password.text!)
             if let currentUser = PFUser.currentUser() {
                 print("\(currentUser.username!) logged in successfully")
@@ -30,7 +29,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         catch{
         }
-        
     }
     
     
@@ -43,15 +41,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let tapGestureReconizer = UITapGestureRecognizer(target: self, action: "tap:")
         view.addGestureRecognizer(tapGestureReconizer)
         username.delegate = self
         password.delegate = self
-        
-        
-        
-
         // Do any additional setup after loading the view.
     }
 
@@ -63,7 +56,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    // MARK: - Navigation
+// MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "login"){
@@ -72,17 +65,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
         }
         else{
-            let nav = segue.destinationViewController as! SignUpViewController
-           // nav.topViewController as! SignUpViewController
-
+            _ = segue.destinationViewController as! SignUpViewController
         }
-            
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-
     }
     
  

@@ -12,10 +12,8 @@ import Parse
 class GoalsViewController: UIViewController {
 
     var partnerGoals: Bool?
+    var selectedGoal: Goal?
     var userSelected = User.currentUser()
-    
-    @IBOutlet weak var add: UIBarButtonItem!
-    
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     var milestonesSelected = false
     @IBAction func indexChanegd(sender: AnyObject) {
@@ -40,7 +38,6 @@ class GoalsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         retrievedGoals = []
-
         if (partnerGoals != nil){
             self.navigationItem.rightBarButtonItem = nil;
             let partnerQuery = PFQuery(className: "Partner")
@@ -80,11 +77,7 @@ class GoalsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-
-        
-        // Do any additional setup after loading the view.
-}
+    }
     
     
     override func didReceiveMemoryWarning() {
@@ -124,8 +117,6 @@ class GoalsViewController: UIViewController {
                 print(error)
             }
         })
-        
-        
         print(retrievedGoals.capacity)
     }
     @IBAction func presentAdd(sender: AnyObject) {
@@ -152,12 +143,11 @@ class GoalsViewController: UIViewController {
                 print(error)
             }
         })
-        print(retrievedGoals.capacity)
     }
     
     
     
-    var selectedGoal: Goal?
+  
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "openReq"){
@@ -167,13 +157,13 @@ class GoalsViewController: UIViewController {
              selectedGoal = retrievedGoals[indexPath.item]
            openGoal.details = selectedGoal?.details
             openGoal.progress = selectedGoal?.progress
-
             openGoal.goalname = selectedGoal?.goalName
            openGoal.goaltype = selectedGoal?.goalType
             openGoal.startdate = selectedGoal?.startDate
             openGoal.endDate = selectedGoal?.endDate
-            
             openGoal.goalId = selectedGoal?.objectId!
+            openGoal.user = selectedGoal?.belongsTo
+           
         }
     }
     
@@ -186,9 +176,6 @@ extension GoalsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return retrievedGoals.count
     }
-    
-    
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("customcell", forIndexPath: indexPath) as! GoalsCell
         
@@ -213,13 +200,6 @@ extension GoalsViewController: UITableViewDataSource, UITableViewDelegate {
         
         }
         cell.goalName.text = retrievedGoals[indexPath.item].goalName;
-        //cell.goalProgress.text = "You are \(retrievedGoals[indexPath.item].progress) done.";
-        //cell.textLabel?.text = retrievedGoals[indexPath.item].goalName;
         return cell
-    }
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //selectedGoal = retrievedGoals[indexPath.item]
-        //self.performSegueWithIdentifier("openReq", sender: self)
     }
 }

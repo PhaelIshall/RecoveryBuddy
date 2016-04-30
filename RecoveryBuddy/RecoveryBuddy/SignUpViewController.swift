@@ -12,17 +12,14 @@ import Parse
 class SignUpViewController: UIViewController{
    
     @IBOutlet weak var fullname: UITextField!
-
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var age: UITextField!
-   
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var email: UITextField!
-    
-    
     var profilePicture: NSData?
+    var photoTakingHelper: PhotoTakingHelper?
+    let user = User();
     
-     var photoTakingHelper: PhotoTakingHelper?
     @IBAction func uploadPic(sender: AnyObject) {
         photoTakingHelper = PhotoTakingHelper(viewController: self, successCallback: { (image: UIImage?) in
             print("received a callback")
@@ -35,12 +32,8 @@ class SignUpViewController: UIViewController{
         })
     
     }
-
-     let user = User();
-    
+  
     func continuing() {
-        
-       
         user.username = username.text;
         user.password  = password.text;
         user.fullname = fullname.text!;
@@ -51,7 +44,6 @@ class SignUpViewController: UIViewController{
         else{
            user.age = 0 
         }
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -61,15 +53,11 @@ class SignUpViewController: UIViewController{
             secondView.user = user;
             secondView.profilePic = profilePicture
         }
-        else{
-            print("shut up");
-        }
     }
     
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let tapGestureReconizer = UITapGestureRecognizer(target: self, action: "tap:")
         view.addGestureRecognizer(tapGestureReconizer)
 
@@ -85,10 +73,7 @@ class SignUpViewController: UIViewController{
         
     }
     
-    
     func tap(sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
-    
-
 }

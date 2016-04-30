@@ -11,61 +11,47 @@ import Parse
 import Bond
 
 class DiaryViewController: UIViewController {
-var photoTakingHelper: PhotoTakingHelper?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    var photoTakingHelper: PhotoTakingHelper?
     var partner: User?
     
     @IBOutlet weak var tableview: UITableView!
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-      
         
-        //Need to make it from both sides but for now okay
-        let partnerQuery = PFQuery(className: "Partner")
-        partnerQuery.whereKey("fromUser", equalTo: User.currentUser()!)
- 
+        let partnerQuery = User.query()!
+        partnerQuery.whereKey("objectId", equalTo: User.currentUser()!.objectId!)
+        partnerQuery.includeKey("partner")
+
         let postsFromPartner = Post.query()
-        //postsFromPartner?.whereKey("user", equalTo: User.currentUser()!)
-        postsFromPartner?.whereKey("user", matchesKey: "toUser", inQuery: partnerQuery)
-        
-        // 3
+        postsFromPartner?.whereKey("user", matchesKey: "partner", inQuery: partnerQuery)
+
         let postsFromThisUser = Post.query()
         postsFromThisUser!.whereKey("user", equalTo: User.currentUser()!)
-        
-        // 4
+
         let query = PFQuery.orQueryWithSubqueries([postsFromPartner!, postsFromThisUser!])
-        // 5
         query.includeKey("user")
-        // 6
         query.orderByDescending("createdAt")
-        
-        // 7
-    
-        
+
         query.findObjectsInBackgroundWithBlock { (result, error) -> Void in
             self.posts = result as? [Post] ?? []
-            // 9
             
             for post in self.posts {
-                // 2
                 do{
                     let data = try post.imageFile?.getData()
                     if data != nil{
                         post.image.value = UIImage(data: data!, scale:1.0)
 
                     }
-                    
-//                   post.user = User.currentUser()
                 }
                 catch{
                     
-                }
-                // 3
-                
+                }   
             }
             
             self.tableview.reloadData()
@@ -76,11 +62,13 @@ var photoTakingHelper: PhotoTakingHelper?
     var posts: [Post] = []
     
    
+    
+    //To create a new post
     @IBAction func presenter(sender: AnyObject) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nav = storyboard.instantiateViewControllerWithIdentifier("navi") as! UINavigationController
                 nav.topViewController as! newPostViewController
-     let vc: UIViewController = storyboard.instantiateViewControllerWithIdentifier("myVCID") as UIViewController
+     let _ = storyboard.instantiateViewControllerWithIdentifier("myVCID") as UIViewController
         self.presentViewController(nav, animated: true, completion: nil)
                 
         
@@ -91,32 +79,18 @@ var photoTakingHelper: PhotoTakingHelper?
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 }
+
 extension DiaryViewController: UITableViewDataSource {
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 1
         return posts.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        // 2
         let cell = tableView.dequeueReusableCellWithIdentifier("PostCell")! as! PostTableViewCell
-        
-        
         let post = posts[indexPath.row]
-         post.downloadImage()
+        post.downloadImage()
         cell.post = post
-        
-//        cell.postImageView.image = posts[indexPath.row].image
-//        //cell.textLabel!.text = "Post"
-//        
-//        cell.post =  
-//        cell.username.text = posts[indexPath.row].user?.username
-//        cell.content.text = posts[indexPath.row].content
-//        
         return cell
     }
-    
 }

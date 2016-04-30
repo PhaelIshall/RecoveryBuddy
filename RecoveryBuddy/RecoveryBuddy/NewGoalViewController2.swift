@@ -12,45 +12,25 @@ class NewGoalViewController2: UIViewController {
 
     @IBOutlet weak var endDate: UIDatePicker!
     @IBOutlet weak var startDate: UIDatePicker!
-    
-    
     var name : String?
     var details: String?
     var goalType : Int?
-
-    
-   
-
     var n: String?
+    let goal = Goal()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         goal.details = details!
         goal.goalType = goalType!
         goal.goalName = name!
         n = name
-            print("\(n) + \(name)")
-        // Do any additional setup after loading the view.
     }
 override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    let goal = Goal()
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if (segue.identifier == "goBackToGoals" ){
-////            let tabBarController = segue.destinationViewController as! UITabBarController;
-////            let destinationViewController = tabBarController.viewControllers![1] as! NavigationController
-////            let barViewControllers = segue.destinationViewController as! UITabBarController
-////            let nav = barViewControllers.viewControllers![1] as! UINavigationController
-////            let destinationViewController = nav.topViewController as! GoalsViewController
-//           segue.destinationViewController as! UITabBarController
-//            
-//            done()
-//        }
-    }
-    
+   
     @IBAction func doneSend(sender: AnyObject) {
         let d = done()
         if (d == true){
@@ -83,8 +63,6 @@ override func didReceiveMemoryWarning() {
             
         }
         else{
-            
-            
             return false
         }
     }
