@@ -14,13 +14,20 @@ At the present time, the resources that are available for those afflicted, in te
 
 #Major Features
 This product has 4 major features:
-•	The “Profile page” where the user can view or edit his/her information: username, picture, eating disorder, age, and gender.
+
+•	The “Profile page” where the user can view or edit his/her information: username, picture, eating disorder, age, and gender
+
 •	The “Goals page” where the user can set goals for themselves such as:
-o	Setting a meal/intuitive eating plan for a certain duration
-o	Setting a workout/exercising schedule for a certain duration
-o	Setting the goal of improving a behavior such as restricting, purging, binging and overeating.
+
+1. Setting a meal/intuitive eating plan for a certain duration.
+
+2. Setting a workout/exercising schedule for a certain duration.
+3. Setting the goal of improving a behavior such as restricting, purging, binging and overeating.
+
 •	The “Milestone page” where the user can view his already completed goals as well as his rewards and comments from his partner
+
 •	Looking at a Partner's profile, goals and milestones
+
 • A shared diary where the matches partners can communicate and update each other about their progress.
 
 *This project started as a project for software engineering course in the American university of Beirut. 
