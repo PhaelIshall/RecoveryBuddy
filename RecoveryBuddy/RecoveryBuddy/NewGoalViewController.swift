@@ -13,7 +13,6 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     
     var details: String!
     var goaltype = -1;
-    var currentGoal = Goal()
     var pickerDataSource = ["Meal plan", "Intuitive eating", "Exercise", "Not exercise", "Custom"];
     
     @IBOutlet weak var pickerView: UIPickerView!
@@ -56,16 +55,6 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
-    
-    func createGoal(){
-        currentGoal.belongsTo = User.currentUser()!
-        currentGoal.details = details
-        currentGoal.goalName = name.text!
-        currentGoal.goalType = goaltype
-    }
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "continueToGoal"){
             if (addDetails.text != "" && name.text != ""){
@@ -85,6 +74,7 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     
     
+   //MARK: PICKERVIEW AND TEXTVIEW DELEGATE FUNCTIONS
     func textViewDidBeginEditing(textView: UITextView) {
         
         if addDetails.textColor == UIColor.lightGrayColor() {
@@ -123,7 +113,6 @@ class NewGoalViewController: UIViewController, UIPickerViewDataSource, UIPickerV
         case 3: goaltype = 3
         case 4: goaltype = 4
         default : goaltype = 0
-            print("row \(row) and type \(goaltype)")
         }
     }
     

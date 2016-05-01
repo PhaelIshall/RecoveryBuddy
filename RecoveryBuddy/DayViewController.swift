@@ -20,6 +20,7 @@ class DayViewController: UIViewController {
     var days: [String] = []
     var success: Bool?
     var q1,q2,q3: String?
+    var user: User!
     @IBOutlet weak var question3: UITextField!
     @IBOutlet weak var question2: UITextField!
     @IBOutlet weak var question1: UITextField!
@@ -63,7 +64,10 @@ class DayViewController: UIViewController {
     
     
     override func viewDidAppear(animated: Bool) {
-        if (selectedDay["user"] as! User != User.currentUser()){
+        
+       
+      
+        if (User.currentUser()?.objectId != user.objectId){
             self.navigationItem.rightBarButtonItem?.enabled = false
         }
         let tapGestureReconizer = UITapGestureRecognizer(target: self, action: "tap:")

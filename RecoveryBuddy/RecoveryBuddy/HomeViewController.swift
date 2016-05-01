@@ -47,10 +47,10 @@ class HomeViewController: UIViewController {
 
 
 
-    var disorder = " ";
-    var name = " "
-    var email = " "
-    var age: Int?
+    var disorder: String!;
+    var name: String!
+    var email: String!
+    var age: Int!
     var partner: PFUser?
     var pic: NSData?
     @IBOutlet weak var profilePicture: UIImageView!
@@ -66,9 +66,9 @@ class HomeViewController: UIViewController {
         }
         if (segue.identifier == "editProfile"){
     let profile = segue.destinationViewController as! ProfileViewController
-            profile.username = User.currentUser()?.username
+            profile.username = User.currentUser()!.username
             profile.fullname = name
-            profile.age = "\(age!)"
+            profile.age = "\(age)"
             profile.disorderType = disorder
             profile.email = email
             profile.usernameOfPartner = partner?.username

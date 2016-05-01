@@ -74,7 +74,7 @@
                   moduleName = "RecoveryBuddy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Wiem/Desktop/RecoveryBuddy-cmps253-spring2016-project%202/Source%20Code/Fontend/RecBud/RecoveryBuddy/RecoveryBuddy/SignUp2ViewController.swift"
-                  timestampString = "483748612.079717"
+                  timestampString = "483758604.681891"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -89,7 +89,7 @@
                   moduleName = "RecoveryBuddy"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Wiem/Desktop/RecoveryBuddy-cmps253-spring2016-project%202/Source%20Code/Fontend/RecBud/RecoveryBuddy/RecoveryBuddy/SignUp2ViewController.swift"
-                  timestampString = "483748612.079861"
+                  timestampString = "483758604.682154"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -118,31 +118,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "RecoveryBuddy/SignUp2ViewController.swift"
-            timestampString = "483640654.140132"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "91"
-            endingLineNumber = "91"
-            landmarkName = "prepareForSegue(_:sender:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DayViewController.swift"
-            timestampString = "483743171.207616"
+            timestampString = "483757506.214686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "pressedDone(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -153,13 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RecoveryBuddy/NewGoalViewController.swift"
-            timestampString = "483747779.223806"
+            filePath = "DayViewController.swift"
+            timestampString = "483757632.034309"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "viewDidAppear(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -169,46 +153,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RecoveryBuddy/NewGoalViewController.swift"
-            timestampString = "483747819.095458"
+            filePath = "RecoveryBuddy/GoalViewController.swift"
+            timestampString = "483758603.64447"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "prepareForSegue(_:sender:)"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RecoveryBuddy.NewGoalViewController.pickerView (RecoveryBuddy.NewGoalViewController)(__ObjC.UIPickerView, didSelectRow : Swift.Int, inComponent : Swift.Int) -&gt; ()"
-                  moduleName = "RecoveryBuddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Wiem/Desktop/RecoveryBuddy-cmps253-spring2016-project%202/Source%20Code/Fontend/RecBud/RecoveryBuddy/RecoveryBuddy/NewGoalViewController.swift"
-                  timestampString = "483748612.082558"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "120"
-                  endingLineNumber = "120"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "RecoveryBuddy.NewGoalViewController.pickerView (RecoveryBuddy.NewGoalViewController)(__ObjC.UIPickerView, didSelectRow : Swift.Int, inComponent : Swift.Int) -&gt; ()"
-                  moduleName = "RecoveryBuddy"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Wiem/Desktop/RecoveryBuddy-cmps253-spring2016-project%202/Source%20Code/Fontend/RecBud/RecoveryBuddy/RecoveryBuddy/NewGoalViewController.swift"
-                  timestampString = "483748612.082799"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "120"
-                  endingLineNumber = "120"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

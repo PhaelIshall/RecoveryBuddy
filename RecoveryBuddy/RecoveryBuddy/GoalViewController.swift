@@ -108,6 +108,7 @@ class GoalViewController: UIViewController {
                 dayController.goal = goalId!
 
             dayController.selectedDay = dictionaryOfDays["Day \(indexPath.item)"]
+            dayController.user = user
     
         }
     }

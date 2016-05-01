@@ -32,8 +32,8 @@ override func didReceiveMemoryWarning() {
     
    
     @IBAction func doneSend(sender: AnyObject) {
-        let d = done()
-        if (d == true){
+        
+        if (done() == true){
             self.presentingViewController?.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
         }
         else{
@@ -52,22 +52,15 @@ override func didReceiveMemoryWarning() {
 
      func done() -> Bool{
         if (endDate.date.compare(startDate.date) == NSComparisonResult.OrderedDescending && startDate?.date.numberOfDaysUntilDateTime(endDate.date) < 14) {
-            
             goal.progress = 0
             goal.startDate = startDate.date
             goal.endDate = endDate.date
             goal.belongsTo = User.currentUser()!
-               print("\(n) + \(name)")
             goal.saveInBackgroundWithBlock(nil)
             return true
             
         }
-        else{
-            return false
-        }
-    }
-    enum UIAlertControllerStyle : Int {
-        case ActionSheet
-        case Alert
+        return false
+        
     }
 }
